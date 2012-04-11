@@ -1778,6 +1778,8 @@
   <!-- Config.xml entries -->
   <java-symbol type="bool" name="config_samsung_stk" />
   <java-symbol type="string" name="config_legacyUmsLunFile" />
+  <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+  <java-symbol type="string" name="config_deviceKeyHandlerClass" />
   <java-symbol type="bool" name="config_smsSamsungCdmaAlternateMessageIDEncoding" />
 
   <!-- Label for the Android system components when they are shown to the user. -->

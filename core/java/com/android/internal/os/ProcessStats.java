@@ -602,14 +602,11 @@ public class ProcessStats {
                         Slog.v(TAG, "First time : Speed/Time = " + tempSpeeds[speed - 1]
                               + "\t" + tempTimes[speed - 1]);
                     }
-               } catch (Exception e) {
-                    if (e instanceof NumberFormatException) {
-                        Slog.i(TAG, "Unable to parse time_in_state");
-                    }
-                    else if (e instanceof ArrayIndexOutOfBoundsException) {
-                        Slog.i(TAG, "Scaling frequency changed while accessing" +
-                            " the time_in_state, It will be handled when the function is called again");
-                    }
+                } catch (NumberFormatException nfe) {
+                    Slog.i(TAG, "Unable to parse time_in_state");
+                } catch (java.util.NoSuchElementException nsee) {
+                    Slog.i(TAG, "time_in_state changed size halfway?");
+                    break;
                 }
             }
         }

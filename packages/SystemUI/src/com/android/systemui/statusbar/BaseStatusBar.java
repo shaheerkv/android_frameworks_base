@@ -182,7 +182,6 @@ public abstract class BaseStatusBar extends SystemUI implements
     // Pie Control
     private PieController mPieController;
     protected NavigationBarOverlay mNavigationBarOverlay;
-
     private EdgeGestureManager mEdgeGestureManager;
 
     // UI-specific methods

@@ -4412,6 +4412,24 @@ public final class Settings {
 		 */
 		public static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
 
+		/**
+		 * Action for long-pressing back button on lock screen
+		 * @hide
+		 */
+		public static final String LOCKSCREEN_LONG_BACK_ACTION = "lockscreen_long_back_action";
+
+		/**
+		 * Action for long-pressing home button on lock screen
+		 * @hide
+		 */
+		public static final String LOCKSCREEN_LONG_HOME_ACTION = "lockscreen_long_home_action";
+
+		/**
+		 * Action for long-pressing menu button on lock screen
+		 * @hide
+		 */
+		public static final String LOCKSCREEN_LONG_MENU_ACTION = "lockscreen_long_menu_action";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.

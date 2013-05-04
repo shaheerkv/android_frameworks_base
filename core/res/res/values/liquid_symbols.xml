@@ -275,4 +275,7 @@
   <!-- On-The-Go -->
   <java-symbol type="drawable" name="ic_lock_onthego" />
 
+  <!-- Panel auto brightness -->
+  <java-symbol type="integer" name="config_panelAutoBrightnessValue" />
+
 </resources>

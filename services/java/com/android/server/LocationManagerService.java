@@ -2225,6 +2225,10 @@ public class LocationManagerService extends ILocationManager.Stub {
         synchronized (mLock) {
             if (isAllowedByCurrentUserSettingsLocked(provider)) {
                 if (!passive) {
+                    location = screenLocationLocked(location, provider);
+                    if (location == null) {
+                        return;
+                    }
                     // notify passive provider of the new location
                     mPassiveProvider.updateLocation(myLocation);
                 }

@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.hardware.Camera;
 import android.hardware.SensorManager;
 import android.net.ConnectivityManager;
 import android.nfc.NfcAdapter;
@@ -72,6 +73,10 @@ public class DeviceUtils {
             (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return (tm.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE)
                     || tm.getLteOnGsmMode() != 0;
+    }
+
+    public static boolean deviceSupportsCamera() {
+        return Camera.getNumberOfCameras() > 0;
     }
 
     public static boolean deviceSupportsGps(Context context) {

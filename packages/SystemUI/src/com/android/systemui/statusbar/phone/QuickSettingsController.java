@@ -26,6 +26,7 @@ import static com.android.internal.util.liquid.QSConstants.TILE_BATTERYSAVER;
 import static com.android.internal.util.liquid.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.liquid.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.liquid.QSConstants.TILE_BUGREPORT;
+import static com.android.internal.util.liquid.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.liquid.QSConstants.TILE_CONTACT;
 import static com.android.internal.util.liquid.QSConstants.TILE_CUSTOM;
 import static com.android.internal.util.liquid.QSConstants.TILE_CUSTOM_KEY;
@@ -83,6 +84,7 @@ import com.android.systemui.quicksettings.BatterySaverTile;
 import com.android.systemui.quicksettings.BluetoothTile;
 import com.android.systemui.quicksettings.BrightnessTile;
 import com.android.systemui.quicksettings.BugReportTile;
+import com.android.systemui.quicksettings.CameraTile;
 import com.android.systemui.quicksettings.ContactTile;
 import com.android.systemui.quicksettings.CustomTile;
 import com.android.systemui.quicksettings.ExpandedDesktopTile;
@@ -171,6 +173,7 @@ public class QuickSettingsController {
 
     void loadTiles() {
         // Filter items not compatible with device
+        boolean cameraSupported = DeviceUtils.deviceSupportsCamera();
         boolean bluetoothSupported = DeviceUtils.deviceSupportsBluetooth();
         boolean mobileDataSupported = DeviceUtils.deviceSupportsMobileData(mContext);
         boolean lteSupported = DeviceUtils.deviceSupportsLte(mContext);
@@ -220,6 +223,8 @@ public class QuickSettingsController {
                 qs = new BluetoothTile(mContext, this, mStatusBarService.mBluetoothController);
             } else if (tile.equals(TILE_BRIGHTNESS)) {
                 qs = new BrightnessTile(mContext, this);
+            } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
+            	qs = new CameraTile(mContext, this, mHandler);
             } else if (tile.equals(TILE_RINGER)) {
                 qs = new RingerModeTile(mContext, this);
             } else if (tile.equals(TILE_SYNC)) {

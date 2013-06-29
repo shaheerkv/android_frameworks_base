@@ -48,6 +48,9 @@ public class BatterySaverTile extends QuickSettingsTile {
                 Intent scheduleSaver = new Intent();
     			scheduleSaver.setAction(Intent.ACTION_BATTERY_SERVICES);
                 mContext.sendBroadcast(scheduleSaver);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
         mOnLongClick = new View.OnLongClickListener() {

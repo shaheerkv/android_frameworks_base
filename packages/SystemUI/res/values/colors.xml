@@ -16,7 +16,9 @@
  * limitations under the License.
  */
 -->
+
 <resources>
+
     <drawable name="notification_number_text_color">#ffffffff</drawable>
     <drawable name="ticker_background_color">#ff1d1d1d</drawable>
     <drawable name="system_bar_background">@color/system_bar_background_opaque</drawable>
@@ -51,9 +53,10 @@
     <!-- Navigation ring -->
     <color name="navring_system_icon_default_color">#FF000000</color>
 
-    <!-- Quick Settings -->
+    <!-- Quick settings -->
     <color name="qs_background_color">#FF212121</color>
     <color name="qs_background_pressed_color">#FF161616</color>
+    <color name="ad_notification_background_color">#3fff</color>
 
     <!-- Pie controls -->
     <color name="pie_overlay_color">#ff000000</color>
@@ -68,7 +71,7 @@
     <!-- Slim recent -->
     <color name="recent_background">#80f5f5f5</color>
 
-    <!-- Card Color -->
+    <!-- Card color -->
     <color name="card_background">#ffffffff</color>
     <color name="card_background_header">#ffffffff</color>
     <color name="card_backgroundExpand">#ffffffff</color>

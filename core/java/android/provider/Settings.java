@@ -3830,6 +3830,12 @@ public final class Settings {
         public static final String MENU_UNLOCK_SCREEN = "menu_unlock_screen";
 
         /**
+         * Recent panel expanded mode (auto = 0, always = 1, never = 2).
+         * @hide
+         */
+        public static final String RECENT_PANEL_EXPANDED_MODE = "recent_panel_expanded_mode";
+
+        /**
          * Whether recent panel gravity is left or right (default = Gravity.RIGHT).
          * @hide
          */
@@ -3848,12 +3854,158 @@ public final class Settings {
         public static final String RECENT_PANEL_FAVORITES = "recent_panel_favorites";
 
         /**
-         * Recent panel expanded mode (auto = 0, always = 1, never = 2).
-         * default = 0.
-         *
+         * Whether to display notifications on screen when screen is off
          * @hide
          */
-        public static final String RECENT_PANEL_EXPANDED_MODE = "recent_panel_expanded_mode";
+        public static final String ENABLE_ACTIVE_DISPLAY = "enable_active_display";
+
+        /**
+         * Whether to display notification messages around ring
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_TEXT = "active_display_text";
+
+        /**
+         * Time to redisplay notifications on screen from when screen turns off, 0 = never redisplay
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_REDISPLAY = "active_display_redisplay";
+
+        /**
+         * Brightness of the display when displaying the active display view
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_BRIGHTNESS = "active_display_brightness";
+
+        /**
+         * Display active display view when device comes out of the user's pocket, etc...
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_POCKET_MODE = "active_display_pocket_mode";
+
+        /**
+         * Whether to include ongoing/non-clearable notifications
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_ALL_NOTIFICATIONS = "active_display_all_notifications";
+
+        /**
+         * Whether to hide low priority notifications like those from google now
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_HIDE_LOW_PRIORITY_NOTIFICATIONS =
+                "active_display_hide_low_priority_notifications";
+
+        /**
+         * Whether to display AM/PM after time when in 12h format
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHOW_AMPM = "active_display_show_ampm";
+
+        /**
+         * Whether to display the date above the time
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHOW_DATE = "active_display_show_date";
+
+        /**
+         * Whether to invert the colors when in bright light
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SUNLIGHT_MODE = "active_display_sunlight_mode";
+
+        /**
+         * Whether to turn off the device when gets pocketed again and was waked up by active display
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_TURNOFF_MODE = "active_display_turnoff_mode";
+
+        /**
+         * Threshold of the proximity sensor to turn on the device.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_THRESHOLD = "active_display_threshold";
+
+        /**
+         * use Active display content view instead default one.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_CONTENT = "active_display_content";
+
+        /**
+         * Timeout of the display when there is no user interaction
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_TIMEOUT = "active_display_timeout";
+
+        /**
+         * A list of packages to exclude from being displayed in active display.
+         * This should be a string of packages separated by |
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_EXCLUDED_APPS = "active_display_excluded_apps";
+
+        /**
+         * A list of packages to exclude from being message displayed in active display.
+         * This should be a string of packages separated by |
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_PRIVACY_APPS = "active_display_privacy_apps";
+
+        /**
+         * allow bypass active display when lockscreen isSecure
+         * and there is no notifications
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_BYPASS = "active_display_bypass";
+
+        /**
+         * Whether to not showing active display when there is annoying notifications.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_ANNOYING = "active_display_annoying";
+
+        /**
+         * double tap every where to sleep on active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_DOUBLE_TAP = "active_display_double_tap";
+
+        /**
+         * shake device to show/hide active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_EVENT = "active_display_shake_event";
+
+        /**
+         * force shake device to show active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_FORCE = "active_display_shake_force";
+
+        /**
+         * shake device to show/hide active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_QUITE_HOURS = "active_display_shake_quiet_hours";
+
+        /**
+         * shake threshold active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_THRESHOLD = "active_display_shake_threshold";
+
+        /**
+         * shake timeout active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_TIMEOUT = "active_display_shake_timeout";
+
+        /**
+         * shake between interval active display.
+         * @hide
+         */
+        public static final String ACTIVE_DISPLAY_SHAKE_LONGTHRESHOLD = "active_display_shake_long_threshold";
 
         /**
          * Recent panel: Show topmost task

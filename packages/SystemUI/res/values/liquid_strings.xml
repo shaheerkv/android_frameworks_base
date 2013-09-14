@@ -158,4 +158,8 @@
     <!-- Navigation bar IME navigation -->
     <string name="accessibility_ime_navigation_left">Cursor left</string>
     <string name="accessibility_ime_navigation_right">Cursor right</string>
+
+    <!-- Active display -->
+    <string name="active_display_privacy_content">Content message not showing because privacy mode enabled</string>
+
 </resources>

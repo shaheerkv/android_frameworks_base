@@ -4406,6 +4406,12 @@ public final class Settings {
          */
         public static final String CUSTOM_SOUND_EFFECTS_PATH = "custom_sound_effects_path";
 
+		/**
+		 * Whether or not to show circle battery around the lockscreen ring
+		 * @hide
+		 */
+		public static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.

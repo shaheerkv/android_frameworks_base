@@ -2806,9 +2806,11 @@ public final class Settings {
         public static final String SIP_ASK_ME_EACH_TIME = "SIP_ASK_ME_EACH_TIME";
 
         /**
-         * Screen-On Notification Light
-         * 0 - disable, default
-         * 1 - enable
+         * Pointer speed setting.
+         * This is an integer value in a range between -7 and +7, so there are 15 possible values.
+         *   -7 = slowest
+         *    0 = default speed
+         *   +7 = fastest
          * @hide
          */
         public static final String POINTER_SPEED = "pointer_speed";

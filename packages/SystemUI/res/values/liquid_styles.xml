@@ -18,6 +18,14 @@
 
 <resources>
 
+    <!-- Battery view -->
+    <style name="TextAppearance.StatusBar.Battery" parent="@*android:style/TextAppearance.StatusBar.Icon">
+        <!-- Note: must be dp to fit in status bar -->
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/batterymeter_charge_color</item>
+    </style>
+
     <!-- Active display -->
     <style name="Theme.DummyActivity" parent="android:style/Theme.Translucent" >
         <item name="android:windowNoTitle">true</item>

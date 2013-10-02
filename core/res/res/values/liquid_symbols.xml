@@ -173,4 +173,7 @@
   <java-symbol type="string" name="floating_window_snap_left"/>
   <java-symbol type="string" name="floating_window_snap_right"/>
 
+  <!-- Motion accelerometer -->
+  <java-symbol type="bool" name="use_motion_accel" />
+
 </resources>

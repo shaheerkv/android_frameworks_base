@@ -1383,4 +1383,7 @@
     <!-- True if the gesture service should be started at system start -->
     <bool name="config_enableGestureService">false</bool>
 
+    <!-- bool value to for enabling motion accelerometer -->
+    <bool name="use_motion_accel">false</bool>
+
 </resources>

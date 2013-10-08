@@ -1427,6 +1427,9 @@
         config to 7. -->
     <integer name="config_deviceHardwareKeys">0</integer>
 
+    <!-- True if the gesture service should be started at system start -->
+    <bool name="config_enableGestureService">false</bool>
+
     <!-- Device supports LED flashlight -->
     <bool name="config_enableTorch">false</bool>
 

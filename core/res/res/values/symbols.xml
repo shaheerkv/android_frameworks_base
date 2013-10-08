@@ -1782,6 +1782,9 @@
   <java-symbol type="string" name="config_deviceKeyHandlerClass" />
   <java-symbol type="bool" name="config_smsSamsungCdmaAlternateMessageIDEncoding" />
 
+  <!-- Gesture Sensor -->
+  <java-symbol type="bool" name="config_enableGestureService" />
+
   <!-- Label for the Android system components when they are shown to the user. -->
   <java-symbol type="string" name="android_system_label" />
 

@@ -269,4 +269,7 @@
   <java-symbol type="string" name="config_deviceKeyHandlerLib" />
   <java-symbol type="string" name="config_deviceKeyHandlerClass" />
 
+  <!-- Device supports LED flashlight -->
+  <java-symbol type="bool" name="config_enableTorch" />
+
 </resources>

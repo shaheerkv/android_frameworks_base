@@ -4101,6 +4101,21 @@ public final class Settings {
          */
         public static final String ACTIVE_DISPLAY_SUNLIGHT_MODE = "active_display_sunlight_mode";
 
+       /**
+         * Whether to display the gesture anywhere trigger region or not.
+         * @hide
+         */
+        @ChaosLab(name="Identicons", classification=Classification.NEW_FIELD)
+        public static final String IDENTICONS_ENABLED = "identicons_enabled";
+
+        /**
+         * Identicons style setting.
+         * @hide
+         */
+        @ChaosLab(name="Identicons", classification=Classification.NEW_FIELD)
+        public static final String IDENTICONS_STYLE = "identicons_style";
+
+
         /**
          * Whether to turn off the device when gets pocketed again and was waked up by active display
          * @hide

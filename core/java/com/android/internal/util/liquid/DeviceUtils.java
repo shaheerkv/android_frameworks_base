@@ -88,17 +88,7 @@ public class DeviceUtils {
     }
 
     public static boolean deviceSupportsTorch(Context context) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            List<ApplicationInfo> packages = pm.getInstalledApplications(0);
-                for (ApplicationInfo packageInfo : packages) {
-                    if (packageInfo.packageName.equals(TorchConstants.APP_PACKAGE_NAME)) {
-                        return true;
-                    }
-                }
-        } catch (Exception e) {
-        }
-        return false;
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_enableTorch);
     }
 
     public static boolean deviceSupportsProximitySensor(Context context) {

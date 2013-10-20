@@ -1378,4 +1378,7 @@
         config to 7. -->
     <integer name="config_deviceHardwareKeys">0</integer>
 
+    <!-- Device supports LED flashlight -->
+    <bool name="config_enableTorch">false</bool>
+
 </resources>

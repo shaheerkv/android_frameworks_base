@@ -25,12 +25,15 @@ import android.app.ActivityManagerNative;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageDataObserver;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
@@ -608,22 +611,84 @@ public abstract class BaseStatusBar extends SystemUI implements
                 mNotificationBlamePopup.getMenuInflater().inflate(
                         R.menu.notification_popup_menu,
                         mNotificationBlamePopup.getMenu());
-                mNotificationBlamePopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                final ContentResolver cr = mContext.getContentResolver();
+                if (Settings.Secure.getInt(cr,
+                        Settings.Secure.DEVELOPMENT_SHORTCUT, 0) == 0) {
+                    mNotificationBlamePopup.getMenu()
+                            .findItem(R.id.notification_inspect_item_force_stop).setVisible(false);
+                    mNotificationBlamePopup.getMenu()
+                            .findItem(R.id.notification_inspect_item_wipe_app).setVisible(false);
+                } else {
+                    try {
+                        PackageManager pm = (PackageManager) mContext.getPackageManager();
+                        ApplicationInfo mAppInfo = pm.getApplicationInfo(packageNameF, 0);
+                        DevicePolicyManager mDpm = (DevicePolicyManager) mContext.
+                                getSystemService(Context.DEVICE_POLICY_SERVICE);
+                        if ((mAppInfo.flags&(ApplicationInfo.FLAG_SYSTEM
+                              | ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA))
+                              == ApplicationInfo.FLAG_SYSTEM
+                              || mDpm.packageHasActiveAdmins(packageNameF)) {
+                            mNotificationBlamePopup.getMenu()
+                            .findItem(R.id.notification_inspect_item_wipe_app).setEnabled(false);
+                        }
+                    } catch (NameNotFoundException ex) {
+                        Slog.e(TAG, "Failed looking up ApplicationInfo for " + packageNameF, ex);
+                    }
+                }
+
+                MenuItem hideIconCheck = mNotificationBlamePopup.getMenu().findItem(R.id.notification_hide_icon_packages);
+                if(hideIconCheck != null) {
+                    hideIconCheck.setChecked(isIconHiddenByUser(packageNameF));
+                    if (packageNameF.equals("android")) {
+                        // cannot set it, no one likes a liar 
+                        hideIconCheck.setVisible(false);
+                    }
+                }
+
+                mNotificationBlamePopup
+                .setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getItemId() == R.id.notification_inspect_item) {
                             startApplicationDetailsActivity(packageNameF);
                             animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
+                        } else if (item.getItemId() == R.id.notification_inspect_item_force_stop) {
+                            ActivityManager am = (ActivityManager) mContext
+                                    .getSystemService(
+                                    Context.ACTIVITY_SERVICE);
+                            am.forceStopPackage(packageNameF);
+                        } else if (item.getItemId() == R.id.notification_inspect_item_wipe_app) {
+                            ActivityManager am = (ActivityManager) mContext
+                                    .getSystemService(Context.ACTIVITY_SERVICE);
+                            am.clearApplicationUserData(packageNameF,
+                                    new FakeClearUserDataObserver());
+                        } else if (item.getItemId() == R.id.notification_hide_icon_packages) {
+                            item.setChecked(!item.isChecked());
+                            setIconHiddenByUser(packageNameF, item.isChecked());
+                            updateNotificationIcons();
                         } else {
                             return false;
                         }
                         return true;
                     }
                 });
+
+                mNotificationBlamePopup.setOnDismissListener(new PopupMenu.OnDismissListener() {
+                    @Override
+                    public void onDismiss(PopupMenu popupMenu) {
+                        mNotificationBlamePopup = null;
+                    }
+                });
+
                 mNotificationBlamePopup.show();
 
                 return true;
             }
         };
+    }
+
+    class FakeClearUserDataObserver extends IPackageDataObserver.Stub {
+        public void onRemoveCompleted(final String packageName, final boolean succeeded) {
+        }
     }
 
     public void dismissPopups() {

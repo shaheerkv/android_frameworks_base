@@ -277,4 +277,7 @@
     <string name="status_bar_notification_swipe_floating_message">Would you like to swipe left to open apps in floating window?</string>
     <string name="status_bar_notification_swipe_floating" translatable="false">@string/status_bar_notification_swipe_floating_title</string>
 
+    <!-- Content description of the data connection type DC-HSPA+ -->
+    <string name="accessibility_data_connection_DC" translatable="false">DC-HSPA+</string>
+
 </resources>

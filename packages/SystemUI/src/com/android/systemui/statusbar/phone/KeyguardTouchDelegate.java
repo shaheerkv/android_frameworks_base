@@ -30,7 +30,6 @@ import com.android.internal.policy.IKeyguardExitCallback;
 import com.android.internal.policy.IKeyguardShowCallback;
 import com.android.internal.policy.IKeyguardService;
 
-
 /**
  * Facilitates event communication between navigation bar and keyguard.  Currently used to
  * control WidgetPager in keyguard to expose the camera widget.
@@ -102,6 +101,7 @@ public class KeyguardTouchDelegate {
         final IKeyguardService service = mService;
         if (service != null) {
             try {
+                Slog.e(TAG, "dispatch!");
                 service.dispatch(event);
                 return true;
             } catch (RemoteException e) {
@@ -112,6 +112,20 @@ public class KeyguardTouchDelegate {
             Slog.w(TAG, "dispatch(event): NO SERVICE!");
         }
         return false;
+    }
+
+    public void dispatchButtonClick(int buttonId) {
+        final IKeyguardService service = mService;
+        if (service != null) {
+            try {
+                service.dispatchButtonClick(buttonId);
+            } catch (RemoteException e) {
+                // What to do?
+                Slog.e(TAG, "RemoteException sending event to keyguard!", e);
+            }
+        } else {
+            Slog.w(TAG, "dispatchButtonClick(buttonId): NO SERVICE!");
+        }
     }
 
     public boolean isInputRestricted() {
@@ -210,5 +224,4 @@ public class KeyguardTouchDelegate {
             Slog.w(TAG, "dismiss(): NO SERVICE!");
         }
     }
-
 }

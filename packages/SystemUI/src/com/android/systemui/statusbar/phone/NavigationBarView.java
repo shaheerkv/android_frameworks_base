@@ -116,6 +116,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
     private int mNavigationIconHints = 0;
 
     private Drawable mBackIcon, mBackAltIcon;
+    boolean mWasNotifsButtonVisible = false;
 
     protected DelegateViewHelper mDelegateHelper;
     private DeadZone mDeadZone;
@@ -212,7 +213,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         public boolean onTouch(View cameraButtonView, MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    // disable search gesture while interacting with camera
+                    // disable search gesture while interacting with additional navbar button
                     mDelegateHelper.setDisabled(true);
                     mBarTransitions.setContentVisible(false);
                     break;
@@ -223,6 +224,13 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
                     break;
             }
             return KeyguardTouchDelegate.getInstance(getContext()).dispatch(event);
+        }
+    };
+
+    private final OnClickListener mNavBarClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            KeyguardTouchDelegate.getInstance(getContext()).dispatchButtonClick(0);
         }
     };
 
@@ -372,6 +380,11 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         return mCurrentView.findViewById(R.id.camera_button);
     }
 
+    // used for lockscreen notifications
+    public View getNotifsButton() {
+        return mCurrentView.findViewById(R.id.show_notifs);
+    }
+
     @Override
     public void setLayoutDirection(int layoutDirection) {
         updateSettings();
@@ -478,10 +491,14 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         // now the keyguard searchlight and camera button
         final KeyButtonView searchLight = (KeyButtonView) getSearchLight();
         final KeyButtonView cameraButton = (KeyButtonView) getCameraButton();
+        final KeyButtonView notifsButton = (KeyButtonView) getNotifsButton();
+
         Drawable defaultSearchLightDrawable =
                 res.getDrawable(R.drawable.search_light);
         Drawable defaultCameraButtonDrawable =
                 res.getDrawable(R.drawable.ic_sysbar_camera);
+        Drawable defaultNotifsButtonDrawable =
+                res.getDrawable(R.drawable.search_light_land);
         if (searchLight != null && defaultSearchLightDrawable != null) {
             if (mNavBarButtonColorMode != 3) {
                 searchLight.setImageBitmap(
@@ -496,6 +513,14 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
                     ImageHelper.getColoredBitmap(defaultCameraButtonDrawable, mNavBarButtonColor));
             } else {
                 cameraButton.setImageDrawable(defaultCameraButtonDrawable);
+            }
+        }
+        if (notifsButton != null && defaultNotifsButtonDrawable != null) {
+            if (mNavBarButtonColorMode != 3) {
+                notifsButton.setImageBitmap(
+                    ImageHelper.getColoredBitmap(defaultNotifsButtonDrawable, mNavBarButtonColor));
+            } else {
+                notifsButton.setImageDrawable(defaultNotifsButtonDrawable);
             }
         }
     }
@@ -714,7 +739,19 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         setDisabledFlags(mDisabledFlags, true);
     }
 
-    @Override
+    public void setButtonDrawable(int buttonId, final int iconId) {
+        final ImageView iv = (ImageView)getNotifsButton();
+        mHandler.post(new Runnable() {
+            public void run() {
+                iv.setImageResource((iconId == 1) ?
+                        R.drawable.search_light_land : R.drawable.ic_notify_clear_normal);
+                mWasNotifsButtonVisible = iconId != 0
+                        && ((mDisabledFlags & View.STATUS_BAR_DISABLE_HOME) != 0);
+                setVisibleOrGone(getNotifsButton(), mWasNotifsButtonVisible);
+            }
+        });
+    }
+
     public void setDisabledFlags(int disabledFlags) {
         setDisabledFlags(disabledFlags, false);
     }
@@ -780,6 +817,20 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         if (cameraButton != null) {
             setVisibleOrGone(cameraButton, shouldShowCamera && !mCameraDisabledByDpm
                     && !mCameraDisabledByUser);
+        }
+
+        final boolean showSearch = disableHome && !disableSearch;
+        final boolean showCamera = showSearch && !mCameraDisabledByDpm;
+
+        final boolean showNotifs = showSearch &&
+                Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.LOCKSCREEN_NOTIFICATIONS, 1) == 1 &&
+                Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.LOCKSCREEN_NOTIFICATIONS_PRIVACY_MODE, 0) == 0;
+
+        final View notifsButton = getNotifsButton();
+        if (notifsButton != null) {
+            setVisibleOrGone(notifsButton, showNotifs && mWasNotifsButtonVisible);
         }
 
         mBarTransitions.applyBackButtonQuiescentAlpha(mBarTransitions.getMode(), true /*animate*/);
@@ -963,11 +1014,15 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         boolean hasCamera = false;
         for (int i = 0; i < mRotatedViews.length; i++) {
             final View cameraButton = mRotatedViews[i].findViewById(R.id.camera_button);
+            final View notifsButton = mRotatedViews[i].findViewById(R.id.show_notifs);
             final View searchLight = mRotatedViews[i].findViewById(R.id.search_light);
             if (cameraButton != null) {
                 hasCamera = true;
                 cameraButton.setOnTouchListener(onTouchListener);
                 cameraButton.setOnClickListener(onClickListener);
+            }
+            if (notifsButton != null) {
+                notifsButton.setOnClickListener(mNavBarClickListener);
             }
             if (searchLight != null) {
                 searchLight.setOnClickListener(onClickListener);
@@ -1082,7 +1137,6 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
     }
     */
 
-
     private String getResourceName(int resId) {
         if (resId != 0) {
             final android.content.res.Resources res = mContext.getResources();
@@ -1144,7 +1198,6 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
 
         // construct the navigationbar
         makeBar();
-
     }
 
     public void setForgroundColor(Drawable drawable) {
@@ -1208,5 +1261,4 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
         pw.println();
     }
-
 }

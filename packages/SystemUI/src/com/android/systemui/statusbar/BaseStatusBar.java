@@ -98,6 +98,7 @@ import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.statusbar.phone.KeyguardTouchDelegate;
 import com.android.systemui.statusbar.halo.Halo;
 import com.android.systemui.statusbar.phone.NavigationBarOverlay;
+import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.statusbar.policy.NotificationRowLayout;
 import com.android.systemui.statusbar.policy.PieController;
 import com.android.systemui.statusbar.policy.activedisplay.ActiveDisplayView;
@@ -689,6 +690,9 @@ public abstract class BaseStatusBar extends SystemUI implements
         mHandler.obtainMessage(MSG_SET_PIE_TRIGGER_MASK,
                 newMask, lock ? 1 : 0, null).sendToTarget();
     }
+
+    @Override
+    public void setButtonDrawable(int buttonId, int iconId) {}
 
     protected abstract WindowManager.LayoutParams getSearchLayoutParams(
             LayoutParams layoutParams);

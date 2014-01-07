@@ -285,4 +285,7 @@
   <!-- Label for the Android system -->
   <java-symbol type="string" name="android_system_label" />
 
+  <!-- Wifi auto connection -->
+  <java-symbol type="bool" name="wifi_autocon" />
+
 </resources>

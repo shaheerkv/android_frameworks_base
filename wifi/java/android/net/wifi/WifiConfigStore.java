@@ -260,12 +260,7 @@ class WifiConfigStore {
     boolean isWifiAutoConn() {
         // If no active network(info == null) and wifi connection type is auto
         // connect, auto connect to wifi.
-        // If the active network type is wifi, wifi connection type is auto
-        // auto connect to wifi. This allows wifi auto-reconnect when
-        // wifi disconnected for unexpected reason.
-        return isWifiAuto() && ((existActiveNetwork() == -1)
-                                  || (existActiveNetwork()
-                                       == ConnectivityManager.TYPE_WIFI));
+        return isWifiAuto() && (existActiveNetwork() == -1);
     }
 
     boolean isDataToWifiAutoConn() {

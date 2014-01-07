@@ -2346,7 +2346,7 @@ public class WifiStateMachine extends StateMachine {
     private void handleNetworkDisconnect() {
         if (DBG) log("Stopping DHCP and clearing IP");
 
-       // when set wifi connection type is manual, it will disable all
+        // when set wifi connection type is manual, it will disable all
         // network to auto connect. but if connect a hotspot manually,
         // the hotspot will be enable and it will be auto connect in next time
         // so need to disable it again to avoid to auto connect.
@@ -2883,6 +2883,14 @@ public class WifiStateMachine extends StateMachine {
 
                     mIbssSupported = mWifiNative.getModeCapability("IBSS");
                     mSupportedChannels = mWifiNative.getSupportedChannels();
+
+                    // if don't set auto connect wifi, should disable all
+                    // wifi ap to prevent wifi connect automatically when open
+                    // wifi switch.
+                    if (mContext.getResources().getBoolean(R.bool.wifi_autocon)
+                        && !mWifiConfigStore.shouldAutoConnect()) {
+                        mWifiConfigStore.disableAllNetworks();
+                    }
 
                     sendSupplicantConnectionChangedBroadcast(true);
                     transitionTo(mDriverStartedState);

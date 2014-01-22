@@ -4533,62 +4533,6 @@ public final class Settings {
         public static final String CLEAR_RECENTS_BUTTON_LOCATION = "clear_recents_button_location";
 
         /**
-         * whether which Ram Usage Bar mode is used on recent switcher
-         * 0 = none, 1 = only app use, 2 = app and cache use, 3 = app, cache and system use
-         * @hide
-         */
-        public static final String RECENTS_RAM_BAR_MODE = "recents_ram_bar_mode";
-
-        /**
-         * Ram Usage Bar system mem color
-         *
-         * @hide
-         */
-        public static final String RECENTS_RAM_BAR_MEM_COLOR = "recents_ram_bar_mem_color";
-
-        /**
-         * Ram Usage Bar cached mem color
-         *
-         * @hide
-         */
-        public static final String RECENTS_RAM_BAR_CACHE_COLOR = "recents_ram_bar_cache_color";
-
-        /**
-         * Ram Usage Bar app mem color
-         *
-         * @hide
-         */
-        public static final String RECENTS_RAM_BAR_ACTIVE_APPS_COLOR = "recents_ram_bar_active_apps_color";
-
-        /**
-         * Whether to use the custom status bar header or not
-         * @hide
-         */
-        public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
-
-        /**
-         * Network traffic indicator, goes from least to greatest significant bitwise
-         * 0 = Display up-stream traffic if set
-         * 1 = Display down-stream traffic if set
-         * 2 = Show as Byte/s if set
-         * 16-31 = Refresh interval(ms)  min: 250  max: 32750  default: 1000
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
-
-        /**
-         * Show the pending notification counts as overlays on the status bar
-         * @hide
-         */
-        public static final String STATUS_BAR_NOTIFICATION_COUNT = "status_bar_notification_count";
-
-        /**
-         * Whether to show the signal text or signal bars
-         * @hide
-         */
-        public static final String STATUS_BAR_SIGNAL_TEXT = "status_bar_signal";
-
-        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */

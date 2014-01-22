@@ -206,6 +206,11 @@
     <string name="halo_tutorial2">Move me: double tap &amp; drag</string>
     <string name="halo_tutorial3">Browse tasks: Horizontal drag</string>
 
+    <!-- Recents Ram bar -->
+    <string name="memory">RAM</string>
+    <string name="service_free_mem"><xliff:g id="memory">%1$s</xliff:g> free</string>
+    <string name="service_used_mem"><xliff:g id="memory">%1$s</xliff:g> used</string>
+
     <!-- On-the-go -->
     <string name="onthego_notif_ticker">On-The-Go activated</string>
     <string name="onthego_notif_title">On-The-Go is active</string>

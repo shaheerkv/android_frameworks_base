@@ -245,4 +245,7 @@
     <string name="advanced_dev_option_wipe_app">Wipe app data</string>
     <string name="advanced_dev_option_force_stop">Force stop</string>
 
+    <!-- Allow hiding notification icons -->
+    <string name="status_bar_notification_hide_icon_packages">Hide app notification icon(s)</string>
+
 </resources>

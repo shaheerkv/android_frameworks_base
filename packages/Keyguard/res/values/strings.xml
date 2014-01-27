@@ -378,5 +378,4 @@
     <!-- On the keyguard screen, it shows the carrier the phone is connected to.
         This is displayed if the phone is not connected to a carrier.-->
     <string name="keyguard_carrier_default">No service.</string>
-
 </resources>

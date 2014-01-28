@@ -143,6 +143,9 @@ public class LocationManagerService extends ILocationManager.Stub {
     private LocationFudger mLocationFudger;
     private GeofenceManager mGeofenceManager;
     private String mGeoFencerPackageName;
+    private String mComboNlpPackageName;
+    private String mComboNlpReadyMarker;
+    private String mComboNlpScreenMarker;
     private GeoFencerBase mGeoFencer;
     private PackageManager mPackageManager;
     private PowerManager mPowerManager;
@@ -452,13 +455,21 @@ public class LocationManagerService extends ILocationManager.Stub {
         }
 
         mGeoFencerPackageName = resources.getString(
-                com.android.internal.R.string.config_geofenceProvider);
+                com.android.internal.R.string.config_geofenceServicesProvider);
         if (mGeoFencerPackageName != null &&
                 mPackageManager.resolveService(new Intent(mGeoFencerPackageName), 0) != null) {
             mGeoFencer = GeoFencerProxy.getGeoFencerProxy(mContext, mGeoFencerPackageName);
         } else {
             mGeoFencer = null;
         }
+
+        mComboNlpPackageName = resources.getString(
+                com.android.internal.R.string.config_comboNetworkLocationProvider);
+        if (mComboNlpPackageName != null) {
+            mComboNlpReadyMarker = mComboNlpPackageName + ".nlp:ready";
+            mComboNlpScreenMarker = mComboNlpPackageName + ".nlp:screen";
+        }
+
     }
 
     /**
@@ -2123,6 +2134,52 @@ public class LocationManagerService extends ILocationManager.Stub {
         synchronized (mLock) {
             return mMockProviders.containsKey(provider);
         }
+    }
+
+    private Location screenLocationLocked(Location location, String provider) {
+
+        if (mComboNlpPackageName == null || false == provider.equals(LocationManager.NETWORK_PROVIDER)) {
+            return location;
+        }
+
+        Bundle extras = location.getExtras();
+        if (extras == null) {
+            extras = new Bundle();
+        }
+
+        if (!extras.containsKey(mComboNlpReadyMarker)) {
+            // see if Combo Nlp is a passive listener
+            ArrayList<UpdateRecord> records =
+                mRecordsByProvider.get(LocationManager.PASSIVE_PROVIDER);
+            if (records != null) {
+                for (UpdateRecord r : records) {
+                    if (r.mReceiver.mPackageName.equals(mComboNlpPackageName)) {
+                        extras.putBoolean(mComboNlpScreenMarker, true);
+                        // send location to Combo Nlp  for screening
+                        if (!r.mReceiver.callLocationChangedLocked(location)) {
+                            Slog.w(TAG, "RemoteException calling onLocationChanged on "
+                                   + r.mReceiver);
+                        } else {
+                            if (D) {
+                                Log.d(TAG, "Sending location for screening");
+                            }
+                        }
+                        return null;
+                    }
+                }
+            }
+            if (D) {
+                Log.d(TAG, "Not screening locations");
+            }
+        } else {
+            if (D) {
+                Log.d(TAG, "This location is marked as ready for broadcast");
+            }
+            // clear the ready marker
+            extras.remove(mComboNlpReadyMarker);
+        }
+
+        return location;
     }
 
     private void handleLocationChanged(Location location, boolean passive) {

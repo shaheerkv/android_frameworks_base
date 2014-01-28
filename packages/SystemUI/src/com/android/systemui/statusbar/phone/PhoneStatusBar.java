@@ -360,6 +360,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // status bar brightness control
     private boolean mBrightnessControl;
+    private boolean mAnimatingFlip = false;
     private float mScreenWidth;
     private int mMinBrightness;
     private int mPeekHeight;
@@ -2028,7 +2029,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 (mNotificationPanel.getHeight() - mCarrierAndWifiViewHeight
                 - mNotificationHeaderHeight - calculateCarrierLabelBottomMargin())
             && mScrollView.getVisibility() == View.VISIBLE
-            && !forceHide;
+            && !forceHide && !mAnimatingFlip;
 
         if (mCarrierAndWifiViewVisible != makeVisible) {
             mCarrierAndWifiViewVisible = makeVisible;
@@ -2611,6 +2612,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mFlipSettingsView.setScaleX(1f);
         }
 
+        mAnimatingFlip = true;
         mScrollView.setVisibility(View.VISIBLE);
         mScrollViewAnim = start(
             startDelay(FLIP_DURATION_OUT * zeroOutDelays,
@@ -2644,6 +2646,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mCarrierAndWifiViewBlocked = false;
         mNotificationPanel.postDelayed(new Runnable() {
             public void run() {
+                mAnimatingFlip = false;
                 updateCarrierAndWifiLabelVisibility(false);
                 updateNotificationShortcutsVisibility(true);
             }
@@ -2739,6 +2742,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             updateNotificationShortcutsVisibility(false);
         }
         mClearButton.setVisibility(View.GONE);
+
+        mAnimatingFlip = true;
+        updateCarrierAndWifiLabelVisibility(false);
     }
 
     public void flipToSettings() {
@@ -2762,6 +2768,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mCarrierAndWifiViewBlocked = true;
         mFlipSettingsView.setVisibility(View.VISIBLE);
+        mAnimatingFlip = true;
         mFlipSettingsViewAnim = start(
             startDelay(FLIP_DURATION_OUT * zeroOutDelays,
                 interpolator(mDecelerateInterpolator,
@@ -2794,6 +2801,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 ObjectAnimator.ofFloat(mClearButton, View.ALPHA, 0f)
                 .setDuration(FLIP_DURATION),
                 mClearButton, View.INVISIBLE));
+        mNotificationPanel.postDelayed(new Runnable() {
+            public void run() {
+                mAnimatingFlip = false;
+            }
+        }, FLIP_DURATION - 150);
         updateCarrierAndWifiLabelVisibility(true);
         updateNotificationShortcutsVisibility(false);
         mNotificationPanelIsOpen = false;

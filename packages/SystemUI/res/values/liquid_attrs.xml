@@ -32,5 +32,10 @@
         <attr name="is_oval" format="boolean" />
         <attr name="android:scaleType" />
     </declare-styleable>
+	
+    <!-- Battery bar -->
+	<declare-styleable name="BatteryBarController">
+        <attr name="viewLocation" format="integer" />
+    </declare-styleable>
 
 </resources>

@@ -4709,6 +4709,12 @@ public final class Settings {
         public static final String ON_THE_GO_ALPHA = "on_the_go_alpha";
 
         /**
+         * Disable ads (HFM)
+         * @hide
+         */
+        public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
+
+        /**
          * The camera instance to use.
          * 0 = Rear Camera
          * 1 = Front Camera

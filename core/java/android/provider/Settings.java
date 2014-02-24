@@ -3988,6 +3988,12 @@ public final class Settings {
         public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         /**
+         * Toast Animations
+         * @hide
+         */
+        public static final String TOAST_ANIMATION = "toast_animation";
+
+        /**
          * Holds the text for the Carrier label. An empty string
          * will bring the default text back.
          * @hide

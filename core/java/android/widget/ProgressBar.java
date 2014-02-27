@@ -1251,25 +1251,23 @@ public class ProgressBar extends View {
 		mAttached = true;
 	}
 
-	@Override
-	protected void onDetachedFromWindow() {
-		if (mIndeterminate) {
-			stopAnimation();
-		}
-		if (mRefreshProgressRunnable != null) {
-			removeCallbacks(mRefreshProgressRunnable);
-		}
-		if (mRefreshProgressRunnable != null && mRefreshIsPosted) {
-			removeCallbacks(mRefreshProgressRunnable);
-		}
-		if (mAccessibilityEventSender != null) {
-			removeCallbacks(mAccessibilityEventSender);
-		}
-		// This should come after stopAnimation(), otherwise an invalidate message remains in the
-		// queue, which can prevent the entire view hierarchy from being GC'ed during a rotation
-		super.onDetachedFromWindow();
-		mAttached = false;
-	}
+    @Override
+    protected void onDetachedFromWindow() {
+        if (mIndeterminate) {
+            stopAnimation();
+        }
+        if (mRefreshProgressRunnable != null) {
+            removeCallbacks(mRefreshProgressRunnable);
+            mRefreshIsPosted = false;
+        }
+        if (mAccessibilityEventSender != null) {
+            removeCallbacks(mAccessibilityEventSender);
+        }
+        // This should come after stopAnimation(), otherwise an invalidate message remains in the
+        // queue, which can prevent the entire view hierarchy from being GC'ed during a rotation
+        super.onDetachedFromWindow();
+        mAttached = false;
+    }
 
 	@Override
 	public void onInitializeAccessibilityEvent(AccessibilityEvent event) {

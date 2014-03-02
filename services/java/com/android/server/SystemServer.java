@@ -379,6 +379,7 @@ class ServerThread {
         StatusBarManagerService statusBar = null;
         InputMethodManagerService imm = null;
         AppWidgetService appWidget = null;
+        ProfileManagerService profile = null;
         NotificationManagerService notification = null;
         WallpaperManagerService wallpaper = null;
         LocationManagerService location = null;
@@ -627,6 +628,14 @@ class ServerThread {
                     contentService.systemReady();
             } catch (Throwable e) {
                 reportWtf("making Content Service ready", e);
+            }
+
+            try {
+                Slog.i(TAG, "Profile Manager");
+                profile = new ProfileManagerService(context);
+                ServiceManager.addService(Context.PROFILE_SERVICE, profile);
+            } catch (Throwable e) {
+                Slog.e(TAG, "Failure starting Profile Manager", e);
             }
 
             try {

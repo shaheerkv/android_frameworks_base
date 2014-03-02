@@ -30,6 +30,8 @@ import android.app.ITransientNotification;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProfileGroup;
+import android.app.ProfileManager;
 import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -2341,6 +2343,14 @@ public class NotificationManagerService extends INotificationManager.Stub
                             }
                             notifyRemovedLocked(r);
                         }
+                    }
+
+                    final ProfileManager profileManager =
+                        (ProfileManager) mContext.getSystemService(Context.PROFILE_SERVICE);
+
+                    ProfileGroup group = profileManager.getActiveProfileGroup(pkg);
+                    if (group != null) {
+                        group.applyOverridesToNotification(notification);
                     }
 
                     // If we're not supposed to beep, vibrate, etc. then don't.

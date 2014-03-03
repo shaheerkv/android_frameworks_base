@@ -4568,6 +4568,12 @@ public final class Settings {
 
 
         /**
+         * Show the pending notification counts as overlays on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_NOTIFICATION_COUNT = "status_bar_notification_count";
+
+        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */

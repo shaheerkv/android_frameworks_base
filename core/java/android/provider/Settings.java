@@ -2485,6 +2485,12 @@ public final class Settings {
         public static final String SWAP_VOLUME_KEYS_BY_ROTATE = "swap_volume_keys_by_rotate";
 
         /**
+         * Adjust the vibration multiplier to control vibration strength
+         * @hide
+         */
+        public static final String VIBRATION_MULTIPLIER = "vibration_multiplier";
+
+        /**
          * @deprecated Each application that shows web suggestions should have its own
          * setting for this.
          */

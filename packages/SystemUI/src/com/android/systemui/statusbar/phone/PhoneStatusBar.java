@@ -3405,7 +3405,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         // because...  well, what's the point otherwise?  And trying to
         // run a ticker without being attached will crash!
         if (n.getNotification().tickerText != null
-                    && mStatusBarContainer.getWindowToken() != null) {
+                    && mStatusBarWindow.getWindowToken() != null) {
             if (0 == (mDisabled & (StatusBarManager.DISABLE_NOTIFICATION_ICONS
                             | StatusBarManager.DISABLE_NOTIFICATION_TICKER))) {
                 mTicker.addEntry(n);

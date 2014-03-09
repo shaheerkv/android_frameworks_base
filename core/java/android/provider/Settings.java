@@ -2865,6 +2865,12 @@ public final class Settings {
         public static final String HALO_MSGBOX = "halo_msgbox";
 
         /**
+         * HALO ninja?, should default to 0 (no, do not disappear when empty)
+         * @hide
+         */
+        public static final String HALO_NINJA = "halo_ninja";
+
+        /**
          * HALO notificatoin count?, should default to 4 (both)
          * @hide
          */
@@ -4637,6 +4643,12 @@ public final class Settings {
          * @hide
          */
         public static final String SWAP_VOLUME_KEYS_ON_ROTATION = "swap_volume_keys_on_rotation";
+
+        /**
+         * Disable FC Notifications
+         * @hide
+         */
+        public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings

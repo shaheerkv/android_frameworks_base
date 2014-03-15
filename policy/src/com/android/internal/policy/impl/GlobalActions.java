@@ -74,12 +74,11 @@ import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.internal.app.ThemeUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.android.internal.app.ThemeUtils;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.liquid.ButtonConfig;
 import com.android.internal.util.liquid.ImageHelper;
@@ -262,7 +261,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                         R.string.global_action_onthego) {
 
                         public void onPress() {
-                            startOnTheGo();
+                            NamelessActions.processAction(mContext,
+                                    NamelessActions.ACTION_ONTHEGO_TOGGLE);
                         }
 
                         public boolean onLongPress() {

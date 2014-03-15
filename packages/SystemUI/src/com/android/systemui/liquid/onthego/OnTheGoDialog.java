@@ -31,7 +31,7 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
-import com.android.internal.util.ose.NamelessUtils;
+import com.android.internal.util.liquid.NamelessUtils;
 import com.android.systemui.R;
 
 public class OnTheGoDialog extends Dialog {

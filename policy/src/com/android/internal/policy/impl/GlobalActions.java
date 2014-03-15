@@ -85,6 +85,7 @@ import com.android.internal.util.liquid.ImageHelper;
 import com.android.internal.util.liquid.PolicyConstants;
 import com.android.internal.util.liquid.PolicyHelper;
 import com.android.internal.util.liquid.LiquidActions;
+import com.android.internal.util.liquid.NamelessActions;
 
 /**
  * Helper to show the global actions dialog.  Each item is an {@link Action} that

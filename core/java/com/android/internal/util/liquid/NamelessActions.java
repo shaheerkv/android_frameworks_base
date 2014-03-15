@@ -17,7 +17,7 @@
 * -->
 */
 
-package com.android.internal.util.ose;
+package com.android.internal.util.liquid;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -41,7 +41,7 @@ public class NamelessActions {
 
     private static void actionOnTheGoToggle(final Context context) {
         final ComponentName cn = new ComponentName("com.android.systemui",
-                "com.android.systemui.ose.onthego.OnTheGoService");
+                "com.android.systemui.liquid.onthego.OnTheGoService");
         final Intent startIntent = new Intent();
         startIntent.setComponent(cn);
         startIntent.setAction("start");

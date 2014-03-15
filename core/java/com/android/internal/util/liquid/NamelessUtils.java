@@ -17,7 +17,7 @@
 * -->
 */
 
-package com.android.internal.util.ose;
+package com.android.internal.util.liquid;
 
 import android.app.ActivityManager;
 import android.content.Context;

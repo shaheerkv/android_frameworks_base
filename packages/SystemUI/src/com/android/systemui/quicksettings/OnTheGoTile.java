@@ -25,9 +25,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 
-import com.android.internal.util.ose.NamelessActions;
+import com.android.internal.util.liquid.NamelessActions;
 import com.android.systemui.R;
-import com.android.systemui.ose.onthego.OnTheGoDialog;
+import com.android.systemui.liquid.onthego.OnTheGoDialog;
 import com.android.systemui.statusbar.phone.QuickSettingsController;
 import com.android.systemui.statusbar.phone.QuickSettingsContainerView;
 

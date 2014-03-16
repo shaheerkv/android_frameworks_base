@@ -4342,6 +4342,24 @@ public final class Settings {
 		 */
 		public static final String SCREEN_RECORDER_BITRATE = "screen_recorder_bitrate";
 
+		/**
+         * Whether to wake the screen with the camera key half-press.
+         * @hide
+         */
+        public static final String CAMERA_WAKE_SCREEN = "camera_wake_screen";
+
+        /**
+         * Whether or not to send device back to sleep if Camera button is released ("Peek")
+         * @hide
+         */
+        public static final String CAMERA_SLEEP_ON_RELEASE = "camera_sleep_on_release";
+
+        /**
+         * Whether or not camera button music controls should be enabled to play/pause media tracks
+         * @hide
+         */
+        public static final String CAMERA_MUSIC_CONTROLS = "camera_music_controls";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.

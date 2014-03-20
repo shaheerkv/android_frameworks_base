@@ -3632,6 +3632,12 @@ public final class Settings {
                 "power_ui_low_battery_warning_policy";
 
         /**
+         * Defines the custom path to use for UI sound effects (null for default)
+         * @hide
+         */
+        public static final String CUSTOM_SOUND_EFFECTS_PATH = "custom_sound_effects_path";
+
+        /**
          * Volume key controls ringtone or media sound stream
          *
          * @hide

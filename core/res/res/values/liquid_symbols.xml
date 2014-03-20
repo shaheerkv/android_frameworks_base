@@ -272,4 +272,7 @@
   <!-- Device supports LED flashlight -->
   <java-symbol type="bool" name="config_enableTorch" />
 
+  <!-- On-The-Go -->
+  <java-symbol type="drawable" name="ic_lock_onthego" />
+
 </resources>

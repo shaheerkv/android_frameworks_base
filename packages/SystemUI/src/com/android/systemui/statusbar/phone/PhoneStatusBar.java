@@ -4564,9 +4564,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         checkBarModes();
 
-        mRecreating = false;
-
         updateHalo();
+
+        mRecreating = false;
     }
 
     private void removeAllViews(ViewGroup parent) {

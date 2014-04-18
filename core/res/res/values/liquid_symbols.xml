@@ -271,6 +271,7 @@
   <!-- Device key handler -->
   <java-symbol type="string" name="config_deviceKeyHandlerLib" />
   <java-symbol type="string" name="config_deviceKeyHandlerClass" />
+  <java-symbol type="bool" name="config_batterySdCardAccessibility" />
 
   <!-- Device supports LED flashlight -->
   <java-symbol type="bool" name="config_enableTorch" />

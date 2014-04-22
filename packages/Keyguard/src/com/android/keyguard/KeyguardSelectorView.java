@@ -93,7 +93,6 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
     private Drawable mBouncerFrame;
     private String[] mStoredTargets;
     private int mTargetOffset;
-    private int mTaps;
     private float mBatteryLevel;
 
     OnTriggerListener mOnTriggerListener = new OnTriggerListener() {
@@ -553,16 +552,9 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
 
     private void startGlowpadTorch() {
         if (mGlowTorch) {
-            mHandler.removeCallbacks(checkDouble);
             mHandler.removeCallbacks(checkLongPress);
-            if (mTaps > 0) {
-                mHandler.postDelayed(checkLongPress,
-                        ViewConfiguration.getLongPressTimeout());
-                mTaps = 0;
-            } else {
-                mTaps += 1;
-                mHandler.postDelayed(checkDouble, 400);
-            }
+            mHandler.postDelayed(checkLongPress,
+                    ViewConfiguration.getLongPressTimeout());
         }
     }
 
@@ -590,12 +582,6 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
             Intent intent = new Intent(TorchConstants.ACTION_ON);
             mContext.sendBroadcastAsUser(
                     intent, new UserHandle(UserHandle.USER_CURRENT));
-        }
-    };
-
-    final Runnable checkDouble = new Runnable () {
-        public void run() {
-            mTaps = 0;
         }
     };
 

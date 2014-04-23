@@ -1782,7 +1782,10 @@
   <!-- Label for the Android system components when they are shown to the user. -->
   <java-symbol type="string" name="android_system_label" />
 
+  <!-- Download Icon -->
+  <java-symbol type="drawable" name="stat_sys_downloadicon" />
+
   <!-- for wifi auto connection -->
   <java-symbol type="bool" name="wifi_autocon" />
-  
+
 </resources>

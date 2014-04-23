@@ -288,4 +288,7 @@
   <!-- Wifi auto connection -->
   <java-symbol type="bool" name="wifi_autocon" />
 
+  <!-- Download icon -->
+  <java-symbol type="drawable" name="stat_sys_downloadicon" />
+
 </resources>

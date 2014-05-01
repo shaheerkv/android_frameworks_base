@@ -282,4 +282,7 @@
   <!-- Panel auto brightness -->
   <java-symbol type="integer" name="config_panelAutoBrightnessValue" />
 
+  <!-- Label for the Android system -->
+  <java-symbol type="string" name="android_system_label" />
+
 </resources>

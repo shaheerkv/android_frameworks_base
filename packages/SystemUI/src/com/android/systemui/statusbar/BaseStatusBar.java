@@ -100,7 +100,6 @@ import com.android.systemui.SearchPanelView;
 import com.android.systemui.SystemUI;
 import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.statusbar.notification.NotificationPeek;
-import com.android.systemui.statusbar.phone.Ticker;
 import com.android.systemui.statusbar.phone.KeyguardTouchDelegate;
 import com.android.systemui.statusbar.halo.Halo;
 import com.android.systemui.statusbar.phone.NavigationBarOverlay;
@@ -269,11 +268,15 @@ public abstract class BaseStatusBar extends SystemUI implements
         return mDeviceProvisioned;
     }
 
+    public int getNotificationCount() {
+        return mNotificationData.size();
+    }
+
     public NotificationData getNotifications() {
         return mNotificationData;
     }
 
-    private ContentObserver mProvisioningObserver = new ContentObserver(mHandler) {
+    private ContentObserver mProvisioningObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
             final boolean provisioned = 0 != Settings.Global.getInt(
@@ -630,13 +633,35 @@ public abstract class BaseStatusBar extends SystemUI implements
                 null, UserHandle.CURRENT);
     }
 
+    private void launchFloating(PendingIntent pIntent) {
+        Intent overlay = new Intent();
+        overlay.addFlags(Intent.FLAG_FLOATING_WINDOW | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        try {
+            ActivityManagerNative.getDefault().resumeAppSwitches();
+            ActivityManagerNative.getDefault().dismissKeyguardOnNextActivity();
+        } catch (RemoteException e) {
+        }
+        try {
+            pIntent.send(mContext, 0, overlay);
+        } catch (PendingIntent.CanceledException e) {
+            // the stack trace isn't very helpful here.  Just log the exception message.
+            Slog.w(TAG, "Sending contentIntent failed: " + e);
+        }
+    }
+
     protected View.OnLongClickListener getNotificationLongClicker() {
         return new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                final String packageNameF = (String) v.getTag();
+                NotificationData.Entry  entry = (NotificationData.Entry) v.getTag();
+                StatusBarNotification sbn = entry.notification;
+
+                final String packageNameF = sbn.getPackageName();
+                final PendingIntent contentIntent = sbn.getNotification().contentIntent;
+
                 if (packageNameF == null) return false;
                 if (v.getWindowToken() == null) return false;
+
                 mNotificationBlamePopup = new PopupMenu(mContext, v);
                 mNotificationBlamePopup.getMenuInflater().inflate(
                         R.menu.notification_popup_menu,
@@ -695,6 +720,9 @@ public abstract class BaseStatusBar extends SystemUI implements
                             item.setChecked(!item.isChecked());
                             setIconHiddenByUser(packageNameF, item.isChecked());
                             updateNotificationIcons();
+                        } else if (item.getItemId() == R.id.notification_floating_item) {
+                            launchFloating(contentIntent);
+                            animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
                         } else {
                             return false;
                         }
@@ -1030,7 +1058,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                 R.layout.status_bar_notification_row, parent, false);
 
         // for blaming (see SwipeHelper.setLongPressListener)
-        row.setTag(sbn.getPackageName());
+        row.setTag(entry);
 
         workAroundBadLayerDrawableOpacity(row);
         View vetoButton = updateNotificationVetoButton(row, sbn);
@@ -1106,14 +1134,18 @@ public abstract class BaseStatusBar extends SystemUI implements
         return new NotificationClicker(intent, pkg, tag, id);
     }
 
+    public NotificationClicker makeClicker(Intent intent) {
+        return new NotificationClicker(intent);
+    }
+
     public class NotificationClicker implements View.OnClickListener {
-        private KeyguardTouchDelegate mKeyguard;
-        private PendingIntent mPendingIntent;
-        private Intent mIntent;
-        private String mPkg;
-        private String mTag;
-        private int mId;
-        private boolean mFloat;
+        public KeyguardTouchDelegate mKeyguard;
+        public PendingIntent mPendingIntent;
+        public Intent mIntent;
+        public String mPkg;
+        public String mTag;
+        public int mId;
+        public boolean mFloat;
 
         public NotificationClicker(PendingIntent intent, String pkg, String tag, int id) {
             this();
@@ -1137,6 +1169,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         }
 
         public void onClick(View v) {
+            if (mNotificationBlamePopup != null) return;
             try {
                 // The intent we are sending is for the application, which
                 // won't have permission to immediately start an activity after
@@ -1149,7 +1182,8 @@ public abstract class BaseStatusBar extends SystemUI implements
             } catch (RemoteException e) {
             }
 
-            if (mIntent != null) {
+            //int flags = Intent.FLAG_FLOATING_WINDOW | Intent.FLAG_ACTIVITY_CLEAR_TASK;
+            if (mPendingIntent != null) {
 
                  /*if (mFloat && !"android".equals(mPkg)) {
                     Intent transparent = new Intent(mContext, com.android.systemui.Transparent.class);

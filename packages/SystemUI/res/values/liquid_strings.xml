@@ -248,4 +248,7 @@
     <!-- Allow hiding notification icons -->
     <string name="status_bar_notification_hide_icon_packages">Hide app notification icon(s)</string>
 
+    <!-- Title shown in recents popup for showing app in floating mode -->
+    <string name="status_bar_recent_floating_item_title">Floating mode</string>
+
 </resources>

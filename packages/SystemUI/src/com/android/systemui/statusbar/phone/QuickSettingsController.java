@@ -27,6 +27,7 @@ import static com.android.internal.util.liquid.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.liquid.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.liquid.QSConstants.TILE_BUGREPORT;
 import static com.android.internal.util.liquid.QSConstants.TILE_CAMERA;
+import static com.android.internal.util.liquid.QSConstants.TILE_COMPASS;
 import static com.android.internal.util.liquid.QSConstants.TILE_CONTACT;
 import static com.android.internal.util.liquid.QSConstants.TILE_CUSTOM;
 import static com.android.internal.util.liquid.QSConstants.TILE_CUSTOM_KEY;
@@ -85,6 +86,7 @@ import com.android.systemui.quicksettings.BluetoothTile;
 import com.android.systemui.quicksettings.BrightnessTile;
 import com.android.systemui.quicksettings.BugReportTile;
 import com.android.systemui.quicksettings.CameraTile;
+import com.android.systemui.quicksettings.CompassTile;
 import com.android.systemui.quicksettings.ContactTile;
 import com.android.systemui.quicksettings.CustomTile;
 import com.android.systemui.quicksettings.ExpandedDesktopTile;
@@ -225,6 +227,8 @@ public class QuickSettingsController {
                 qs = new BrightnessTile(mContext, this);
             } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
             	qs = new CameraTile(mContext, this, mHandler);
+            } else if (tile.equals(TILE_COMPASS)) {
+                qs = new CompassTile(mContext, this);
             } else if (tile.equals(TILE_RINGER)) {
                 qs = new RingerModeTile(mContext, this);
             } else if (tile.equals(TILE_SYNC)) {

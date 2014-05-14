@@ -829,20 +829,19 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
             return;
         }
         if (DEBUG) Log.v(TAG, "Jettison " + ad.getLabel());
-        mRecentTaskDescriptions.remove(ad);
-        mRecentTasksLoader.remove(ad);
 
-        // Handled by widget containers to enable LayoutTransitions properly
-        // mListAdapter.notifyDataSetChanged();
+        if (mRecentTaskDescriptions != null) {
+            mRecentTaskDescriptions.remove(ad);
+            mRecentTasksLoader.remove(ad);
 
-        if (mRecentTaskDescriptions.size() == 0) {
-            RecentTasksLoader.getInstance(mContext).cancelPreloadingFirstTask();
-            // Instruct (possibly) running on-the-spot dialog to dismiss recents
-            mRecentsContainer.setDismissAfterConfirmation(true);
-            if (mRecentsContainer.isConfirmationDialogAnswered()) {
-                // No on-the-spot dialog running, safe to dismiss now
+            // Handled by widget containers to enable LayoutTransitions properly
+            // mListAdapter.notifyDataSetChanged();
+
+            if (mRecentTaskDescriptions.size() == 0) {
                 dismissAndGoBack();
             }
+        } else {
+            dismissAndGoBack();
         }
 
         // Currently, either direction means the same thing, so ignore direction and remove

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.slim;
+package com.android.internal.util.liquid;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -262,5 +262,4 @@ public class ShakeListener implements SensorEventListener {
             ShakeListener.this.mContext.unregisterReceiver(mBroadcastReceiver);
         }
     };
-
 }

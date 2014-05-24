@@ -78,11 +78,11 @@ import java.util.List;
 import java.util.UUID;
 
 import com.android.internal.statusbar.IStatusBarService;
-import com.android.internal.util.slim.ButtonConfig;
-import com.android.internal.util.slim.ImageHelper;
-import com.android.internal.util.slim.PolicyConstants;
-import com.android.internal.util.slim.PolicyHelper;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonConfig;
+import com.android.internal.util.liquid.ImageHelper;
+import com.android.internal.util.liquid.PolicyConstants;
+import com.android.internal.util.liquid.PolicyHelper;
+import com.android.internal.util.liquid.LiquidActions;
 
 /**
  * Helper to show the global actions dialog.  Each item is an {@link Action} that
@@ -339,7 +339,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                             config.getClickAction(), config.getIcon(), true),
                             config.getClickActionDescription()) {
                         public void onPress() {
-                            SlimActions.processAction(
+                            LiquidActions.processAction(
                                 mContext, config.getClickAction(), false);
                         }
 
@@ -384,7 +384,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                             config.getClickAction(), config.getIcon(), true),
                             config.getClickActionDescription()) {
                         public void onPress() {
-                            SlimActions.processAction(
+                            LiquidActions.processAction(
                                 mContext, config.getClickAction(), false);
                         }
 
@@ -484,7 +484,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 R.string.global_actions_expanded_desktop_mode_off_status) {
 
             void onToggle(boolean on) {
-                SlimActions.processAction(
+                LiquidActions.processAction(
                     mContext, PolicyConstants.ACTION_EXPANDED_DESKTOP, false);
             }
 
@@ -508,7 +508,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 R.string.global_actions_pie_mode_off_status) {
 
             void onToggle(boolean on) {
-                SlimActions.processAction(
+                LiquidActions.processAction(
                     mContext, PolicyConstants.ACTION_PIE, false);
             }
 
@@ -532,7 +532,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 R.string.global_actions_nav_bar_mode_off_status) {
 
             void onToggle(boolean on) {
-                SlimActions.processAction(
+                LiquidActions.processAction(
                     mContext, PolicyConstants.ACTION_NAVBAR, false);
             }
 

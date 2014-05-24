@@ -73,9 +73,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RemoteViews.OnClickHandler;
 
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.ShakeListener;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonsConstants;
+import com.android.internal.util.liquid.ShakeListener;
+import com.android.internal.util.liquid.LiquidActions;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -583,7 +583,7 @@ public class KeyguardHostView extends KeyguardViewBase {
                     if ("**keyguard_camera**".equals(mShakeEvent[direction])) {
                         launchCamera();
                     } else {
-                        SlimActions.processAction(mContext, mShakeEvent[direction], false);
+                        LiquidActions.processAction(mContext, mShakeEvent[direction], false);
                     }
                 }
             }

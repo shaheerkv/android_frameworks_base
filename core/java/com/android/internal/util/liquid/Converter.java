@@ -13,20 +13,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package com.android.internal.util.slim;
+package com.android.internal.util.liquid;
 
-import android.os.SystemProperties;
+import android.content.Context;
 
-public class BuildInfo {
+public class Converter {
 
-    private static final String BUILD_TYPE_PROP = "ro.slim.buildtype";
-    private static final String SLIM_VERSION_PROP = "ro.slim.version";
-
-    public static String getSlimBuildType() {
-        return SystemProperties.get(BUILD_TYPE_PROP, "");
+    public static int dpToPx(Context context, int dp) {
+        return (int) ((dp * context.getResources().getDisplayMetrics().density) + 0.5);
     }
 
-    public static String getSlimVersion() {
-        return SystemProperties.get(SLIM_VERSION_PROP, "");
+    public static int pxToDp(Context context, int px) {
+        return (int) ((px / context.getResources().getDisplayMetrics().density) + 0.5);
     }
+
 }

@@ -32,7 +32,7 @@ import android.os.IBinder;
 import android.os.UserHandle;
 import android.provider.Settings;
 
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.LiquidActions;
 import com.android.systemui.R;
 
 public class ReminderService extends Service {
@@ -70,7 +70,7 @@ public class ReminderService extends Service {
             Intent time = new Intent(
                     "com.android.systemui.timedialog.ReminderTimeDialog");
             time.putExtra("type", "time");
-            SlimActions.startIntent(this, time, true);
+            LiquidActions.startIntent(this, time, true);
         }
 
         if (clearNoti) {

@@ -37,7 +37,7 @@ import android.view.Display;
 import android.view.IWindowManager;
 import android.view.View;
 
-import com.android.internal.util.slim.DeviceUtils;
+import com.android.internal.util.liquid.DeviceUtils;
 
 import com.android.systemui.R;
 import com.android.systemui.RecentsComponent;
@@ -76,7 +76,6 @@ public class Recents extends SystemUI implements RecentsComponent {
                     mContext.startActivityAsUser(intent, new UserHandle(
                             UserHandle.USER_CURRENT));
                 }
-
             } else {
                 final IWindowManager windowManagerService = IWindowManager.Stub.asInterface(
                         ServiceManager.getService(Context.WINDOW_SERVICE));

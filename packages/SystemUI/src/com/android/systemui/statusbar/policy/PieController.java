@@ -64,12 +64,12 @@ import android.widget.ImageView;
 
 import com.android.internal.util.gesture.EdgeGesturePosition;
 import com.android.internal.util.gesture.EdgeServiceConstants;
-import com.android.internal.util.slim.ButtonConfig;
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.ButtonsHelper;
-import com.android.internal.util.slim.Converter;
-import com.android.internal.util.slim.ImageHelper;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonConfig;
+import com.android.internal.util.liquid.ButtonsConstants;
+import com.android.internal.util.liquid.ButtonsHelper;
+import com.android.internal.util.liquid.Converter;
+import com.android.internal.util.liquid.ImageHelper;
+import com.android.internal.util.liquid.LiquidActions;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.phone.NavigationBarOverlay;
@@ -831,24 +831,24 @@ public class PieController implements BaseStatusBar.NavigationBarCallback, PieVi
     @Override
     public void onLongClick(PieItem item) {
         String type = (String) item.longTag;
-        if (!SlimActions.isActionKeyEvent(type)) {
+        if (!LiquidActions.isActionKeyEvent(type)) {
             mPieContainer.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         }
         mPieContainer.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
-        SlimActions.processAction(mContext, type, true);
+        LiquidActions.processAction(mContext, type, true);
     }
 
     @Override
     public void onClick(PieItem item) {
         String type = (String) item.tag;
-        if (!SlimActions.isActionKeyEvent(type)) {
+        if (!LiquidActions.isActionKeyEvent(type)) {
             mPieContainer.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         }
         if (!type.equals(ButtonsConstants.ACTION_MENU)) {
             mPieContainer.playSoundEffect(SoundEffectConstants.CLICK);
         }
         mPieContainer.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
-        SlimActions.processAction(mContext, type, false);
+        LiquidActions.processAction(mContext, type, false);
     }
 
     private void doHapticTriggerFeedback() {

@@ -20,8 +20,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonsConstants;
+import com.android.internal.util.liquid.LiquidActions;
 
 public class LastApp extends Activity  {
 
@@ -33,7 +33,7 @@ public class LastApp extends Activity  {
     @Override
     public void onResume() {
         super.onResume();
-        SlimActions.processAction(
+        LiquidActions.processAction(
                 this, ButtonsConstants.ACTION_LAST_APP, false);
         this.finish();
     }

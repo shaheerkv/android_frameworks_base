@@ -56,12 +56,12 @@ import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
 
-import com.android.internal.util.slim.ButtonConfig;
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.ButtonsHelper;
-import com.android.internal.util.slim.ImageHelper;
-import com.android.internal.util.slim.DeviceUtils;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonConfig;
+import com.android.internal.util.liquid.ButtonsConstants;
+import com.android.internal.util.liquid.ButtonsHelper;
+import com.android.internal.util.liquid.ImageHelper;
+import com.android.internal.util.liquid.DeviceUtils;
+import com.android.internal.util.liquid.LiquidActions;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.GlowPadView.OnTriggerListener;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
@@ -131,11 +131,11 @@ public class SearchPanelView extends FrameLayout implements
                 if (!mSearchPanelLock) {
                     mLongPress = true;
                     mBar.hideSearchPanel();
-                    if (!SlimActions.isActionKeyEvent(mLongList.get(mTarget))) {
+                    if (!LiquidActions.isActionKeyEvent(mLongList.get(mTarget))) {
                         performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                     }
                     sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
-                    SlimActions.processAction(mContext, mLongList.get(mTarget), true);
+                    LiquidActions.processAction(mContext, mLongList.get(mTarget), true);
                     mSearchPanelLock = true;
                  }
             }
@@ -172,14 +172,14 @@ public class SearchPanelView extends FrameLayout implements
             final int resId = mGlowPadView.getResourceIdForTarget(target);
             mTarget = target;
             if (!mLongPress) {
-                if (!SlimActions.isActionKeyEvent(mIntentList.get(target))) {
+                if (!LiquidActions.isActionKeyEvent(mIntentList.get(target))) {
                     performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                 }
                 if (!mIntentList.get(target).equals(ButtonsConstants.ACTION_MENU)) {
                     playSoundEffect(SoundEffectConstants.CLICK);
                 }
                 sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
-                SlimActions.processAction(mContext, mIntentList.get(target), false);
+                LiquidActions.processAction(mContext, mIntentList.get(target), false);
                 mHandler.removeCallbacks(SetLongPress);
             }
         }

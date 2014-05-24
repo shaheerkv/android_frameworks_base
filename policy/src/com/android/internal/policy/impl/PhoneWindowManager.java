@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2008 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,10 +101,10 @@ import com.android.internal.policy.impl.keyguard.KeyguardServiceDelegate;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.telephony.ITelephony;
 import com.android.internal.util.gesture.EdgeGesturePosition;
-import com.android.internal.util.slim.ButtonsConstants;
-import com.android.internal.util.slim.Converter;
-import com.android.internal.util.slim.HwKeyHelper;
-import com.android.internal.util.slim.SlimActions;
+import com.android.internal.util.liquid.ButtonsConstants;
+import com.android.internal.util.liquid.Converter;
+import com.android.internal.util.liquid.HwKeyHelper;
+import com.android.internal.util.liquid.LiquidActions;
 import com.android.internal.widget.PointerLocationView;
 
 import java.io.File;
@@ -2877,7 +2878,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Reset the check flag for preloading to give it free
         // for next preload call.
         mPreloadedRecentApps = false;
-        SlimActions.processAction(mContext, action, false);
+        LiquidActions.processAction(mContext, action, false);
     }
 
     /** {@inheritDoc} */

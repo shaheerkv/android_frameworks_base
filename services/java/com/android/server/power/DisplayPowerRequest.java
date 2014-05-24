@@ -62,7 +62,7 @@ final class DisplayPowerRequest {
     // visible to the user.
     public boolean blockScreenOn;
 
-    // Slim settings - override config for ElectronBeam mode
+    // Override config for ElectronBeam mode
     public int electronBeamMode;
 
     // Multiplication factor for delays used in auto-brightness computations

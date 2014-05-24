@@ -112,11 +112,11 @@ public class Build {
         public static final String CODENAME = getString("ro.build.version.codename");
 
         /**
-         * The current version string that defines the slim version
-         * the device is on
+         * The current version string that defines the liquid version
+         * the device is on.
          * @hide
          */
-        public static final String SLIM = getString("ro.slim.version");
+        public static final String LIQUID = getString("ro.liquid.version");
 
         /**
          * The SDK version to use when accessing resources.

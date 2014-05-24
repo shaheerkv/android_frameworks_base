@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.internal.util.slim;
+package com.android.internal.util.liquid;
 
 import android.app.Activity;
 import android.app.ActivityManagerNative;
@@ -48,7 +48,7 @@ import com.android.internal.statusbar.IStatusBarService;
 
 import java.net.URISyntaxException;
 
-public class SlimActions {
+public class LiquidActions {
 
     private static final int MSG_INJECT_KEY_DOWN = 1066;
     private static final int MSG_INJECT_KEY_UP = 1067;
@@ -292,7 +292,7 @@ public class SlimActions {
                     }
                 startActivity(context, windowManagerService, isKeyguardShowing, intent);
                 } catch (ActivityNotFoundException e) {
-                    Log.e("SlimActions:", "No activity to handle assist long press action.", e);
+                    Log.e("LiquidActions:", "No activity to handle assist long press action.", e);
                 }
                 return;
             } else if (action.equals(ButtonsConstants.ACTION_VIB)) {
@@ -358,7 +358,7 @@ public class SlimActions {
                 try {
                     intent = Intent.parseUri(action, 0);
                 } catch (URISyntaxException e) {
-                    Log.e("SlimActions:", "URISyntaxException: [" + action + "]");
+                    Log.e("LiquidActions:", "URISyntaxException: [" + action + "]");
                     return;
                 }
                 startActivity(context, windowManagerService, isKeyguardShowing, intent);

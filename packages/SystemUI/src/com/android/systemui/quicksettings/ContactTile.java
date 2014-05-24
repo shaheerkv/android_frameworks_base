@@ -17,7 +17,7 @@
 
 package com.android.systemui.quicksettings;
 
-import static com.android.internal.util.slim.QSConstants.TILE_CUSTOM_KEY;
+import static com.android.internal.util.liquid.QSConstants.TILE_CUSTOM_KEY;
 
 import android.content.ContentResolver;
 import android.content.Context;

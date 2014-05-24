@@ -48,7 +48,7 @@ import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 
 import com.android.internal.R;
-import com.android.internal.util.slim.ImageHelper;
+import com.android.internal.util.liquid.ImageHelper;
 
 import java.util.ArrayList;
 

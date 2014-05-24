@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.UserHandle;
 
-import com.android.internal.util.slim.TorchConstants;
+import com.android.internal.util.liquid.TorchConstants;
 
 public class Torch extends Activity  {
 

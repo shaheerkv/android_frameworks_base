@@ -50,12 +50,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.android.internal.telephony.IccCardConstants.State;
-import com.android.internal.util.slim.AppHelper;
-import com.android.internal.util.slim.LockscreenTargetUtils;
-import com.android.internal.util.slim.DeviceUtils;
-import com.android.internal.util.slim.ImageHelper;
-import com.android.internal.util.slim.SlimActions;
-import com.android.internal.util.slim.TorchConstants;
+import com.android.internal.util.liquid.AppHelper;
+import com.android.internal.util.liquid.LockscreenTargetUtils;
+import com.android.internal.util.liquid.DeviceUtils;
+import com.android.internal.util.liquid.ImageHelper;
+import com.android.internal.util.liquid.LiquidActions;
+import com.android.internal.util.liquid.TorchConstants;
 import com.android.internal.view.RotationPolicy;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.multiwaveview.GlowPadView;
@@ -113,7 +113,7 @@ public class KeyguardSelectorView extends LinearLayout implements KeyguardSecuri
                         mCallback.userActivity(0);
                         mCallback.dismiss(false);
                     } else {
-                        SlimActions.processAction(mContext, targetUri, false);
+                        LiquidActions.processAction(mContext, targetUri, false);
                         mCallback.userActivity(0);
                     }
                 }

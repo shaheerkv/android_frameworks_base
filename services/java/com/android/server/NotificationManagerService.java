@@ -54,7 +54,6 @@ import android.media.IAudioService;
 import android.media.IRingtonePlayer;
 import android.net.Uri;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -92,6 +91,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
@@ -118,6 +118,8 @@ public class NotificationManagerService extends INotificationManager.Stub
     private static final String SYSTEM_FOLDER = "/data/system";
 
     private static final int MAX_PACKAGE_NOTIFICATIONS = 50;
+
+    private static final int DEFAULT_RESULT = 0;
 
     // message codes
     private static final int MESSAGE_TIMEOUT = 2;
@@ -221,10 +223,11 @@ public class NotificationManagerService extends INotificationManager.Stub
     private static final String ATTR_HALO_POLICY_IS_BLACK = "policy_is_black";
 
     private static final String TAG_ALLOWED_PKGS = "allowed-packages";
-
     private static final String TAG_BLOCKED_PKGS = "blocked-packages";
     private static final String TAG_PACKAGE = "package";
     private static final String ATTR_NAME = "name";
+
+    private static final String NOTIFICATION_POLICY = "notification_policy.xml";
 
     private final ArrayList<NotificationScorer> mScorers = new ArrayList<NotificationScorer>();
 
@@ -405,7 +408,39 @@ public class NotificationManagerService extends INotificationManager.Stub
     Archive mArchive = new Archive();
 
     private int readPolicy(AtomicFile file, String lookUpTag, HashSet<String> db) {
-        return readPolicy(file, lookUpTag, db, null, 0);
+        int result = DEFAULT_RESULT;
+        FileInputStream infile = null;
+        try {
+            infile = file.openRead();
+            final XmlPullParser parser = Xml.newPullParser();
+            parser.setInput(infile, null);
+
+            int type;
+            String tag;
+            int version = DB_VERSION;
+            while ((type = parser.next()) != END_DOCUMENT) {
+                tag = parser.getName();
+                if (type == START_TAG) {
+                    if (TAG_BODY.equals(tag)) {
+                        version = Integer.parseInt(parser.getAttributeValue(null, ATTR_VERSION));
+                    } else if (lookUpTag.equals(tag)) {
+                        while ((type = parser.next()) != END_DOCUMENT) {
+                            tag = parser.getName();
+                            if (TAG_PACKAGE.equals(tag)) {
+                                db.add(parser.getAttributeValue(null, ATTR_NAME));
+                            } else if (lookUpTag.equals(tag) && type == END_TAG) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            // Unable to read
+        } finally {
+            IoUtils.closeQuietly(infile);
+        }
+        return result;
     }
 
     private int readPolicy(AtomicFile file, String lookUpTag, HashSet<String> db, String resultTag, int defaultResult) {
@@ -451,7 +486,7 @@ public class NotificationManagerService extends INotificationManager.Stub
     private void loadBlockDb() {
         synchronized(mBlockedPackages) {
             if (mPolicyFile == null) {
-                mPolicyFile = new AtomicFile(new File(SYSTEM_FOLDER, "notification_policy.xml"));
+                mPolicyFile = new AtomicFile(new File(SYSTEM_FOLDER, NOTIFICATION_POLICY));
                 mBlockedPackages.clear();
                 readPolicy(mPolicyFile, TAG_BLOCKED_PKGS, mBlockedPackages);
             }
@@ -622,7 +657,6 @@ public class NotificationManagerService extends INotificationManager.Stub
         }
         writeBlockDb();
     }
-
 
     private static String idDebugString(Context baseContext, String packageName, int id) {
         Context c = null;
@@ -1472,7 +1506,6 @@ public class NotificationManagerService extends INotificationManager.Stub
     class SettingsObserver extends ContentObserver {
         private final Uri NOTIFICATION_LIGHT_PULSE_URI
                 = Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHT_PULSE);
-
         private final Uri ENABLED_NOTIFICATION_LISTENERS_URI
                 = Settings.Secure.getUriFor(Settings.Secure.ENABLED_NOTIFICATION_LISTENERS);
 
@@ -1520,7 +1553,8 @@ public class NotificationManagerService extends INotificationManager.Stub
                     Settings.System.QUIET_HOURS_DIM),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Global.getUriFor(
-                    Settings.Global.BATTERY_SAVER_LED_DISABLE), false, this, UserHandle.USER_ALL);
+                    Settings.Global.BATTERY_SAVER_LED_DISABLE),
+                    false, this, UserHandle.USER_ALL);
             update(null);
         }
 
@@ -1936,7 +1970,7 @@ public class NotificationManagerService extends INotificationManager.Stub
         enqueueNotificationInternal(pkg, basePkg, Binder.getCallingUid(), Binder.getCallingPid(),
                 tag, id, notification, idOut, userId);
     }
-    
+
     private final static int clamp(int x, int low, int high) {
         return (x < low) ? low : ((x > high) ? high : x);
     }
@@ -2730,7 +2764,6 @@ public class NotificationManagerService extends INotificationManager.Stub
                 }
                 pw.println("  ");
             }
-
         }
 
         synchronized (mNotificationList) {
@@ -2766,7 +2799,6 @@ public class NotificationManagerService extends INotificationManager.Stub
                     break;
                 }
             }
-
         }
     }
 }

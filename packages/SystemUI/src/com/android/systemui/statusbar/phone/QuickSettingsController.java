@@ -58,10 +58,6 @@ import static com.android.internal.util.liquid.QSConstants.TILE_REBOOT;
 import static com.android.internal.util.liquid.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.liquid.QSConstants.TILE_FCHARGE;
 
-import android.app.Activity;
-import android.app.ActivityManagerNative;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -117,8 +113,6 @@ import com.android.systemui.quicksettings.WifiAPTile;
 import com.android.systemui.quicksettings.RebootTile;
 import com.android.systemui.quicksettings.OnTheGoTile;
 import com.android.systemui.quicksettings.FastChargeTile;
-
-
 
 import java.util.ArrayList;
 import java.util.HashMap;

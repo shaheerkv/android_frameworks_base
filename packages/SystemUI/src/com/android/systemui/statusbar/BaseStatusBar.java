@@ -421,7 +421,6 @@ public abstract class BaseStatusBar extends SystemUI implements
                     switches, binders);
         } catch (RemoteException ex) {
             // If the system process isn't there we're doomed anyway.
-
         }
 
         // HALO Listener
@@ -795,7 +794,6 @@ public abstract class BaseStatusBar extends SystemUI implements
 
                 if (packageNameF == null) return false;
                 if (v.getWindowToken() == null) return false;
-
                 mNotificationBlamePopup = new PopupMenu(mContext, v);
                 mNotificationBlamePopup.getMenuInflater().inflate(
                         R.menu.notification_popup_menu,
@@ -1484,7 +1482,6 @@ public abstract class BaseStatusBar extends SystemUI implements
         if (mNotificationData.findByKey(entry.key) == null) {
             mNotificationData.add(entry);
         }
-
         return entry;
     }
 
@@ -1693,7 +1690,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         boolean updateTicker = (notification.getNotification().tickerText != null
                 && !TextUtils.equals(notification.getNotification().tickerText,
-                        oldEntry.notification.getNotification().tickerText)) && (!mHoverActive|| mHaloActive);
+                        oldEntry.notification.getNotification().tickerText)) && (!mHoverActive || mHaloActive);
         boolean isTopAnyway = isTopNotification(rowParent, oldEntry);
         if (contentsUnchanged && bigContentsUnchanged && (orderUnchanged || isTopAnyway)) {
             if (DEBUG) Log.d(TAG, "reusing notification for key: " + key);

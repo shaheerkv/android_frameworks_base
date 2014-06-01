@@ -16,6 +16,7 @@
 
 package com.android.internal.os;
 
+import android.graphics.Typeface;
 import android.net.Credentials;
 import android.net.LocalSocket;
 import android.os.Process;
@@ -91,7 +92,7 @@ class ZygoteConnection {
                 new InputStreamReader(socket.getInputStream()), 256);
 
         mSocket.setSoTimeout(CONNECTION_TIMEOUT_MILLIS);
-                
+
         try {
             peer = mSocket.getPeerCredentials();
         } catch (IOException ex) {
@@ -248,6 +249,17 @@ class ZygoteConnection {
 
             fd = null;
 
+            /**
+             *
+             * Needed, but present also in this commit:
+             * https://github.com/CyanogenMod/android_frameworks_base/commit/fc2fb1d5eb55b41477eabd75dbef3964be145732
+             *
+             */
+            //Replace the font cache if the theme changed
+            if (parsedArgs.refreshTheme) {
+                Typeface.recreateDefaults();
+            }
+
             pid = Zygote.forkAndSpecialize(parsedArgs.uid, parsedArgs.gid, parsedArgs.gids,
                     parsedArgs.debugFlags, rlimits, parsedArgs.mountExternal, parsedArgs.seInfo,
                     parsedArgs.niceName, fdsToClose);
@@ -377,6 +389,9 @@ class ZygoteConnection {
 
         /** from --invoke-with */
         String invokeWith;
+
+        /** from --refresh_theme */
+        boolean refreshTheme;
 
         /**
          * Any args after and including the first non-option arg
@@ -537,6 +552,8 @@ class ZygoteConnection {
                     mountExternal = Zygote.MOUNT_EXTERNAL_MULTIUSER;
                 } else if (arg.equals("--mount-external-multiuser-all")) {
                     mountExternal = Zygote.MOUNT_EXTERNAL_MULTIUSER_ALL;
+                } else if (arg.equals("--refresh_theme")) {
+                    refreshTheme = true;
                 } else {
                     break;
                 }
@@ -588,7 +605,7 @@ class ZygoteConnection {
         }
 
         // See bug 1092107: large argc can be used for a DOS attack
-        if (argc > MAX_ZYGOTE_ARGC) {   
+        if (argc > MAX_ZYGOTE_ARGC) {
             throw new IOException("max arg count exceeded");
         }
 
@@ -605,7 +622,7 @@ class ZygoteConnection {
     }
 
     /**
-     * Applies zygote security policy per bugs #875058 and #1082165. 
+     * Applies zygote security policy per bugs #875058 and #1082165.
      * Based on the credentials of the process issuing a zygote command:
      * <ol>
      * <li> uid 0 (root) may specify any uid, gid, and setgroups() list
@@ -636,7 +653,7 @@ class ZygoteConnection {
             /* In normal operation, SYSTEM_UID can only specify a restricted
              * set of UIDs. In factory test mode, SYSTEM_UID may specify any uid.
              */
-            uidRestricted  
+            uidRestricted
                  = !(factoryTest.equals("1") || factoryTest.equals("2"));
 
             if (uidRestricted

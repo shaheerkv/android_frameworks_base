@@ -95,11 +95,6 @@
     <!-- Error description on theme switch with ligtsensor mode enabled -->
     <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
 
-    <!-- Title of an application permission that lets an application access the ThemeManagerService. -->
-    <string name="permlab_accessThemeService">Allows accessing the theme manager service. Not for use by normal applications.</string>
-    <!-- Description of an application permission that lets lets an application access the ThemeManagerService -->
-    <string name="permdesc_accessThemeService">Allows an application to set/reset themes. Not for use by normal applications.</string>
-
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_preventpower">prevent power key</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -174,5 +169,27 @@
     <string name="permlab_interceptSmsSent">intercept outgoing SMS</string>
     <!-- Permission: Description for the Intercept SMS permission used by VoicePlus -->
     <string name="permdesc_interceptSmsSent">Allows the app to intercept an outgoing SMS. Malicious apps may use this to prevent outgoing SMS messages.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessThemeService">access theme service</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readThemes">read your theme info</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readThemesDesc">Allows the app to read your themes and
+       determine which theme you have applied.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_writeThemes">modify your themes</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
+       modify which theme you have applied.</string>
 
 </resources>

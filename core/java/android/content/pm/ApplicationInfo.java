@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ * This code has been modified.  Portions copyright (C) 2010, T-Mobile USA, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -470,6 +471,12 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     public int enabledSetting = PackageManager.COMPONENT_ENABLED_STATE_DEFAULT;
 
     /**
+     * Is given application theme agnostic, i.e. behaves properly when default theme is changed.
+     * {@hide}
+     */
+    public boolean isThemeable = false;
+
+    /**
      * For convenient access to package's install location.
      * @hide
      */
@@ -591,6 +598,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         uiOptions = orig.uiOptions;
         backupAgentName = orig.backupAgentName;
         protect = orig.protect;
+        isThemeable = orig.isThemeable;
     }
 
 
@@ -632,6 +640,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         dest.writeInt(descriptionRes);
         dest.writeInt(uiOptions);
         dest.writeInt(protect ? 1 : 0);
+        dest.writeInt(isThemeable? 1 : 0);
     }
 
     public static final Parcelable.Creator<ApplicationInfo> CREATOR
@@ -672,6 +681,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
         descriptionRes = source.readInt();
         uiOptions = source.readInt();
         protect = source.readInt() != 0;
+        isThemeable = source.readInt() != 0;
     }
 
     /**

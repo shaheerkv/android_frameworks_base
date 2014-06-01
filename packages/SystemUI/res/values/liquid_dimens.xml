@@ -77,4 +77,7 @@
     <dimen name="hover_cling_width">-1px</dimen>
     <dimen name="hover_tablet_width">478dp</dimen>
 
+    <!-- WiFi combo margin -->
+    <dimen name="wifi_combo_margin_end">-6dp</dimen>
+
 </resources>

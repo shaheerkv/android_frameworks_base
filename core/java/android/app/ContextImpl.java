@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2006 The Android Open Source Project
+ * This code has been modified.  Portions copyright (C) 2010, T-Mobile USA, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +17,14 @@
 
 package android.app;
 
+import android.content.res.IThemeService;
+import android.content.res.ThemeManager;
 import android.os.Build;
 import com.android.internal.policy.PolicyManager;
 import com.android.internal.util.Preconditions;
 
+import android.accounts.AccountManager;
+import android.accounts.IAccountManager;
 import android.bluetooth.BluetoothManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -27,9 +32,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.IContentProvider;
+import android.content.IIntentReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.IIntentReceiver;
 import android.content.IntentSender;
 import android.content.ReceiverCallNotAllowedException;
 import android.content.ServiceConnection;
@@ -41,6 +46,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
+import android.content.res.CustomTheme;
 import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
@@ -597,10 +603,18 @@ class ContextImpl extends Context {
             }});
 
         registerService(PROFILE_SERVICE, new ServiceFetcher() {
-                public Object createService(ContextImpl ctx) {
-                    final Context outerContext = ctx.getOuterContext();
-                    return new ProfileManager (outerContext, ctx.mMainThread.getHandler());
-                }});
+            public Object createService(ContextImpl ctx) {
+                final Context outerContext = ctx.getOuterContext();
+                return new ProfileManager (outerContext, ctx.mMainThread.getHandler());
+            }});
+
+        registerService(THEME_SERVICE, new ServiceFetcher() {
+            public Object createService(ContextImpl ctx) {
+                IBinder b = ServiceManager.getService(THEME_SERVICE);
+                IThemeService service = IThemeService.Stub.asInterface(b);
+                return new ThemeManager(ctx.getOuterContext(),
+                        service);
+            }});
     }
 
     static ContextImpl getImpl(Context context) {
@@ -625,6 +639,20 @@ class ContextImpl extends Context {
     @Override
     public Resources getResources() {
         return mResources;
+    }
+
+    /**
+     * Refresh resources object which may have been changed by a theme
+     * configuration change.
+     */
+    /* package */ void refreshResourcesIfNecessary() {
+        if (mResources == Resources.getSystem()) {
+            return;
+        }
+
+        if (mPackageInfo.getCompatibilityInfo().isThemeable) {
+            mTheme = null;
+        }
     }
 
     @Override
@@ -2033,8 +2061,8 @@ class ContextImpl extends Context {
                     || (compatInfo != null && compatInfo.applicationScale
                             != resources.getCompatibilityInfo().applicationScale)) {
                 resources = mResourcesManager.getTopLevelResources(
-                        packageInfo.getResDir(), displayId,
-                        overrideConfiguration, compatInfo, activityToken);
+                        packageInfo.getResDir(), packageInfo.getOverlayDirs(), displayId,
+                        packageInfo.getAppDir(), overrideConfiguration, compatInfo, activityToken, mOuterContext);
             }
         }
         mResources = resources;

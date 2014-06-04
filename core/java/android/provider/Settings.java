@@ -4726,14 +4726,6 @@ public final class Settings {
         public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
 
         /**
-         * Whether wifi settings will connect to access point automatically
-         * 0 = automatically
-         * 1 = manually
-         * @hide
-         */
-        public static final String WIFI_AUTO_CONNECT_TYPE = "wifi_auto_connect_type";
-
-        /**
          * Whether wifi settings will connect to access point automatically when
          * network from mobile network transform to Wifi network
          * 0 = automatically
@@ -4778,14 +4770,6 @@ public final class Settings {
          * @hide
          */
         public static final String CUSTOM_RECENT_TOGGLE = "custom_recent_toggle";
-
-        /**
-         * Whether to allow notification vibration while notification alerts are disabled
-         * (e.g. during phone calls). The vibration pattern to be used will be a subtle one;
-         * custom vibration is disabled at that point.
-         * @hide
-         */
-        public static final String NOTIFICATION_VIBRATE_DURING_ALERTS_DISABLED = "vibrate_while_no_alerts";
 
         /**
          * Either if notification peek is enabled of disabled

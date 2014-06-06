@@ -72,4 +72,8 @@
     <!-- Network traffic monitor multi-line text size -->
     <dimen name="net_traffic_multi_text_size">9dp</dimen>
 
+    <!-- Hover dimens -->
+    <dimen name="hover_height">64dp</dimen>
+    <dimen name="hover_cling_width">-1px</dimen>
+
 </resources>

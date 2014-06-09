@@ -132,6 +132,12 @@ public class QwertyKeyListener extends BaseKeyListener {
             resetMetaState(content);
             return true;
         }
+        
+                if (i == KeyCharacterMap.DOT_WWW_INPUT || i == KeyCharacterMap.DOT_COM_INPUT) {
+            content.replace(selStart, selEnd, selStart == 0 ? "www." : ".com");
+            adjustMetaAfterKeypress(content);
+            return true;
+        }
 
         if (i == KeyCharacterMap.HEX_INPUT) {
             int start;

@@ -169,6 +169,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     public static final String CUSTOM_LOCKSCREEN_STATE
             = "com.android.keyguard.custom.STATE";
+    public static final String ACTION_VOLUMEPANEL_SHOWN
+            = "android.view.volumepanel.SHOWN";
+    public static final String ACTION_VOLUMEPANEL_HIDDEN
+            = "android.view.volumepanel.HIDDEN";
 
     private static final int MSG_OPEN_NOTIFICATION_PANEL = 1000;
     private static final int MSG_CLOSE_PANELS = 1001;
@@ -1545,6 +1549,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         filter.addAction(ACTION_DEMO);
         filter.addAction(SCHEDULE_REMINDER_NOTIFY);
         filter.addAction(CUSTOM_LOCKSCREEN_STATE);
+        filter.addAction(ACTION_VOLUMEPANEL_SHOWN);
+        filter.addAction(ACTION_VOLUMEPANEL_HIDDEN);
         context.registerReceiver(mBroadcastReceiver, filter);
 
         // receive broadcasts for app actions
@@ -4207,6 +4213,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 if (null != mNavigationBarView) {
                     mNavigationBarView.getBarTransitions().applyTransparent(showing);
                 }
+            }
+            else if (ACTION_VOLUMEPANEL_SHOWN.equals(action)) {
+                animateStatusBarOut();
+            }
+            else if (ACTION_VOLUMEPANEL_HIDDEN.equals(action)) {
+                animateStatusBarIn();
             }
         }
     };

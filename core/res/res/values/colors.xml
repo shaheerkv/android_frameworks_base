@@ -239,4 +239,7 @@
     <color name="trds_background">#ffffffff</color>
     <color name="trds_text">#ff000000</color>
 
+    <!-- Volume panel -->
+    <color name="volume_panel_bg">#cc111111</color>
+
 </resources>

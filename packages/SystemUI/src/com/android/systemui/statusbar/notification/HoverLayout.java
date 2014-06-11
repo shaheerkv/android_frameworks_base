@@ -62,6 +62,7 @@ public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback
         mExpandHelper = new ExpandHelper(mContext, this, minHeight, maxHeight);
         float densityScale = mContext.getResources().getDisplayMetrics().density;
         float pagingTouchSlop = ViewConfiguration.get(mContext).getScaledPagingTouchSlop();
+        mSwipeHelper = new SwipeHelper(SwipeHelper.X, this, densityScale, pagingTouchSlop);
     }
 
     public void setHoverContainer(Hover hover) {

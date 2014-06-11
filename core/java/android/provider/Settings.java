@@ -2842,6 +2842,12 @@ public final class Settings {
         public static final String HALO_MSGBOX = "halo_msgbox";
 
         /**
+         * HALO ninja?, should default to 0 (no, do not disappear when empty)
+         * @hide
+         */
+        public static final String HALO_NINJA = "halo_ninja";
+
+        /**
          * HALO notificatoin count?, should default to 4 (both)
          * @hide
          */
@@ -2901,27 +2907,27 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
 
         /**
-        * @hide
-        * Shows custom date before clock time
-        * 0 - No Date
-        * 1 - Small Date
-        * 2 - Normal Date
-        */
+         * @hide
+         * Shows custom date before clock time
+         * 0 - No Date
+         * 1 - Small Date
+         * 2 - Normal Date
+         */
         public static final String STATUSBAR_CLOCK_DATE_DISPLAY = "statusbar_clock_date_display";
 
         /**
-        * @hide
-        * Sets the date string style
-        * 0 - Regular style
-        * 1 - Lowercase
-        * 2 - Uppercase
-        */
+         * @hide
+         * Sets the date string style
+         * 0 - Regular style
+         * 1 - Lowercase
+         * 2 - Uppercase
+         */
         public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
 
         /**
-        * @hide
-        * Stores the java DateFormat string for the date
-        */
+         * @hide
+         * Stores the java DateFormat string for the date
+         */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
         /**
@@ -3012,13 +3018,13 @@ public final class Settings {
         public static final String SYSTEM_POWER_CRT_MODE = "system_power_crt_mode";
 
         /**
-          * Volume keys control cursor in text fields (default is 0)
-          * 0 - Disabled
-          * 1 - Volume up/down moves cursor left/right
-          * 2 - Volume up/down moves cursor right/left
-          * @hide
-          */
-         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
+         * Volume keys control cursor in text fields (default is 0)
+         * 0 - Disabled
+         * 1 - Volume up/down moves cursor left/right
+         * 2 - Volume up/down moves cursor right/left
+         * @hide
+         */
+        public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
          * Override and forcefully disable the fullscreen keyboard
@@ -3269,7 +3275,6 @@ public final class Settings {
          */
         public static final String QUICK_TILES_TEXT_COLOR = "quick_tiles_text_color";
 
-
         /**
          * QuickSettings tiles background color
          *
@@ -3427,11 +3432,11 @@ public final class Settings {
                 "status_bar_circle_battery_animationspeed";
 
         /**
-        * Whether to control brightness from status bar
-        *
-        * @hide
-        */
-       public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+         * Whether to control brightness from status bar
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
         /**
          * MediaScanner behavior on boot.
@@ -3588,18 +3593,16 @@ public final class Settings {
          */
         public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM = "volume_keys_control_media_stream";
 
-
         /**
          * Hide network labels in the notification drawer
          * @hide
          */
         public static final String NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 
-
         /**
-          * Stores values for notification shortcut targets
-          * @hide
-          */
+         * Stores values for notification shortcut targets
+         * @hide
+         */
         public static final String NOTIFICATION_SHORTCUTS_CONFIG = "notification_shortcuts_config";
 
         /**
@@ -3913,7 +3916,6 @@ public final class Settings {
                 "wallpaper_intra_close",  
         };  
         public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
-        public static final String ANIMATION_CONTROLS_NO_OVERRIDE = "animation_controls_no_override";
 
         /**
          * ListView Animations
@@ -5220,8 +5222,7 @@ public final class Settings {
          * in a PIN locked lockscreen
          * 0 = off | 1 = always | 2 = only on request
          * @hide
-          */
-
+         */
         public static final String LOCK_NUMPAD_RANDOM = "lock_numpad_random";
 
         /**

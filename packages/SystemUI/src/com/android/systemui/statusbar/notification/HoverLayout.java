@@ -34,7 +34,7 @@ import com.android.systemui.SwipeHelper;
  * Hover container
  * Handles touch eventing for hover.
  */
-public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback {
+public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback, SwipeHelper.Callback {
 
     private ExpandHelper mExpandHelper; /* Y axis (expander) */
     private SwipeHelper mSwipeHelper; /* X axis (swiper, to dismiss) */
@@ -62,7 +62,6 @@ public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback
         mExpandHelper = new ExpandHelper(mContext, this, minHeight, maxHeight);
         float densityScale = mContext.getResources().getDisplayMetrics().density;
         float pagingTouchSlop = ViewConfiguration.get(mContext).getScaledPagingTouchSlop();
-        mSwipeHelper = new SwipeHelper(SwipeHelper.X, new SwipeHelperCallbackX(), densityScale, pagingTouchSlop);
     }
 
     public void setHoverContainer(Hover hover) {
@@ -173,19 +172,17 @@ public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback
             mTouchOutside = false; // restart
             mHover.setLocked(userLocked);
             mHover.clearHandlerCallbacks();
-            if (mHover.isCurrentNotificationOnList()) {
-                // ignore current, Android hasn't removed it
-                mHover.processOverridingQueue(mExpanded);
-            } else {
-                // dismiss current, Android removed it
-                mHover.dismissHover(false, false);
-            }
+            mHover.processOverridingQueue(mExpanded);
+           
         }
     }
 
     // SwipeHelper.Callback methods
 
-    private class SwipeHelperCallbackX implements SwipeHelper.Callback {
+        @Override
+        public void onChildTriggered(View v) {
+        }
+
         @Override
         public View getChildAtPosition(MotionEvent ev) {
             return getChildContentView(null);
@@ -238,4 +235,3 @@ public class HoverLayout extends RelativeLayout implements ExpandHelper.Callback
             mHover.processOverridingQueue(mExpanded);
         }
     }
-}

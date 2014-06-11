@@ -1995,7 +1995,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             ((ImageView)mClearButton).setImageResource(R.drawable.ic_notify_clear);
         }
 
-<<<<<<< HEAD
         if (mHaloButton != null) {
             mHaloButton.setImageDrawable(null);
             mHaloButton.setImageResource(mHaloActive
@@ -2983,11 +2982,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
          mHaloButtonAnim = start(
             setVisibilityWhenDone(
                 ObjectAnimator.ofFloat(mHaloButton, View.ALPHA, 0f)
-        mHoverButtonAnim = start(
-            setVisibilityWhenDone(
-                ObjectAnimator.ofFloat(mHoverButton, View.ALPHA, 0f)
                     .setDuration(FLIP_DURATION),
                     mScrollView, View.INVISIBLE));
+        mHoverButton.setVisibility(View.VISIBLE);
+        mHoverButtonAnim = start(
+             ObjectAnimator.ofFloat(mHoverButton, View.ALPHA, 1f)
+                 .setDuration(FLIP_DURATION));
         mNotificationButton.setVisibility(View.VISIBLE);
         mNotificationButtonAnim = start(
             ObjectAnimator.ofFloat(mNotificationButton, View.ALPHA, 1f)
@@ -3614,12 +3614,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                             | StatusBarManager.DISABLE_NOTIFICATION_TICKER))) {
                 boolean blacklisted = false;
                 // don't pass notifications that run in Hover to Ticker
+                if (mHoverState == HOVER_ENABLED) {
                 try {
                     blacklisted = getNotificationManager().isPackageAllowedForHover(n.getPackageName());
                 } catch (android.os.RemoteException ex) {
                     // System is dead
                 }
-                if (!blacklisted) mTicker.addEntry(n);
+             }
+             if (!blacklisted) mTicker.addEntry(n);
             }
         }
     }
@@ -3637,13 +3639,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     private class MyTicker extends Ticker {
-
+        private boolean hasTicked = false;
         MyTicker(Context context, View sb) {
             super(context, sb);
         }
 
         @Override
         public void tickerStarting() {
+			if (mHoverState == HOVER_DISABLED) mTicking = true;
             if (!mHaloActive) {
                 mStatusBarContents.setVisibility(View.GONE);
                 mCenterClockLayout.setVisibility(View.GONE);
@@ -3653,11 +3656,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mCenterClockLayout.startAnimation(
                     loadAnim(com.android.internal.R.anim.push_up_out,
                     null));
+                hasTicked = true;
             }
         }
 
         @Override
         public void tickerDone() {
+			if (!hasTicked) return;
             if (!mHaloActive) {
                 mStatusBarContents.setVisibility(View.VISIBLE);
                 mCenterClockLayout.setVisibility(View.VISIBLE);
@@ -3668,6 +3673,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mCenterClockLayout.startAnimation(
                     loadAnim(com.android.internal.R.anim.push_down_in,
                     null));
+                hasTicked = false;
             }
         }
 

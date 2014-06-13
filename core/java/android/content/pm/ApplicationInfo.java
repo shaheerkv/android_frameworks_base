@@ -478,6 +478,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     /**
      * When true, indicates that any one component within this application is
      * protected.
+     * @hide
      */
     public boolean protect = false;
     

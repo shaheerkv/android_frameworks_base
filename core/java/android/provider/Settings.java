@@ -4751,22 +4751,6 @@ public final class Settings {
         public static final String QUICK_SETTINGS_RIBBON_TILES = "quick_settings_ribbon_tiles";
 
         /**
-         * In call dialpad state.
-         * 0 = hidden
-         * 1 = showing
-         * @hide
-         */
-        public static final String DIALPAD_STATE = "dialpad_state";
-
-        /**
-         * Hover, default is 0 (off).
-         * 0 = disabled
-         * 1 = enabled
-         * @hide
-         */
-        public static final String HOVER_STATE = "hover_state";
-
-        /**
          * Swipe recents for floating windows option
          * @hide
          */
@@ -4783,6 +4767,36 @@ public final class Settings {
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+
+        /**
+         * In call dialpad state.
+         * 0 = hidden
+         * 1 = showing
+         * @hide
+         */
+        public static final String DIALPAD_STATE = "dialpad_state";
+
+        /**
+         * Hover, default is 0 (off).
+         * 0 = disabled
+         * 1 = enabled
+         * @hide
+         */
+        public static final String HOVER_STATE = "hover_state";
+
+        /**
+         * Hover: Exclude non-clearable notifications, default is 0 (off).
+         *
+         * @hide
+         */
+        public static final String HOVER_EXCLUDE_NON_CLEARABLE = "hover_exclude_non_clearable";
+
+        /**
+         * Hover: Exclude low priority notifications, default is 0 (off).
+         *
+         * @hide
+         */
+        public static final String HOVER_EXCLUDE_LOW_PRIORITY = "hover_exclude_low_priority";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings

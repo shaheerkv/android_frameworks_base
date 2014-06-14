@@ -59,7 +59,7 @@ public class NotificationHostView extends FrameLayout {
     private static final float SWIPE = 0.2f;
     private static final int ANIMATION_MAX_DURATION = 300;
     private static final int PPMS = 2;
-    private static final int MAX_ALPHA = 190;
+    private static final int MAX_ALPHA = 200;
 
     //Here we store dimissed notifications so we don't add them again in onFinishInflate
     private static HashMap<String, StatusBarNotification> mDismissedNotifications = new HashMap<String, StatusBarNotification>();
@@ -432,6 +432,11 @@ public class NotificationHostView extends FrameLayout {
         remoteView.setBackgroundColor(0x00FFFFFF & NotificationViewManager.config.notificationColor);
         remoteView.setAlpha(1f);
 
+        View v = remoteView.findViewById(android.R.id.icon);
+        if (v instanceof ImageView) {
+            ImageView icon = (ImageView)v;
+            icon.setBackgroundColor(0);
+        }
         remoteView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -444,6 +449,7 @@ public class NotificationHostView extends FrameLayout {
                     return true;
                 }
             });
+
 
         if (oldView != null){
             //The notification already exists, so it was just changed. Remove the old view and add the new one
@@ -463,6 +469,7 @@ public class NotificationHostView extends FrameLayout {
                         } else {
                             oldView.getChildAt(0).setX(0);
                         }
+                        oldView.getChildAt(0).setBackgroundColor(NotificationViewManager.config.notificationColor);
                     }
                     oldView.statusBarNotification = sbn;
                 }
@@ -527,7 +534,6 @@ public class NotificationHostView extends FrameLayout {
             v.onAnimationEnd = new Runnable() {
                 public void run() {
                     if (dismiss) {
-                        Log.e(TAG, "dismiss");
                         dismiss(sbn);
                     }
                     mNotifView.removeView(v);

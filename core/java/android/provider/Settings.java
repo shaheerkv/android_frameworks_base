@@ -4792,6 +4792,13 @@ public final class Settings {
         public static final String HOVER_ACTIVE = "hover_active";
 
         /**
+         * Hover: Hide HOVER-Button is StatusBar, default is 1 (on).
+         *
+         * @hide
+         */
+        public static final String HOVER_HIDE_BUTTON = "hover_hide_button";
+
+        /**
          * Hover: Exclude non-clearable notifications, default is 0 (off).
          *
          * @hide

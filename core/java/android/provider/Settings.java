@@ -4839,6 +4839,13 @@ public final class Settings {
          * @hide
          */
         public static final String HOVER_EXCLUDE_LOW_PRIORITY = "hover_exclude_low_priority";
+		
+        /**
+         * Hover: Option to exclude topmost app, default is 1 (on).
+         *
+         * @hide
+         */
+        public static final String HOVER_EXCLUDE_TOPMOST = "hover_exclude_topmost";
 
         /**
          * Show the pending notification counts as overlays on the status bar

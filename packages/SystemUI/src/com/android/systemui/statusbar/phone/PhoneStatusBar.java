@@ -24,7 +24,6 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_OPAQUE;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_SEMI_TRANSPARENT;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSLUCENT;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_LIGHTS_OUT;
-import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARENT;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -47,7 +46,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
-import android.content.res.CustomTheme;
+import android.content.res.ThemeConfig;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Canvas;
@@ -381,7 +380,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // last theme that was applied in order to detect theme change (as opposed
     // to some other configuration change).
-    CustomTheme mCurrentTheme;
+    ThemeConfig mCurrentTheme;
     private boolean mRecreating = false;
 
     // for disabling the status bar
@@ -1037,9 +1036,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 .getDefaultDisplay();
         updateDisplaySize();
 
-        CustomTheme currentTheme = mContext.getResources().getConfiguration().customTheme;
+        ThemeConfig currentTheme = mContext.getResources().getConfiguration().themeConfig;
         if (currentTheme != null) {
-            mCurrentTheme = (CustomTheme)currentTheme.clone();
+            mCurrentTheme = (ThemeConfig)currentTheme.clone();
         }
 
         mCurrUiThemeMode = mContext.getResources().getConfiguration().uiThemeMode;
@@ -1767,7 +1766,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (DEBUG) Log.v(TAG, "addNavigationBar: about to add " + mNavigationBarView);
         if (mNavigationBarView == null) return;
 
-        CustomTheme newTheme = mContext.getResources().getConfiguration().customTheme;
+        ThemeConfig newTheme = mContext.getResources().getConfiguration().themeConfig;
         if (newTheme != null &&
                 (mCurrentTheme == null || !mCurrentTheme.equals(newTheme))) {
             // Nevermind, this will be re-created
@@ -1793,7 +1792,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private void repositionNavigationBar() {
         if (mNavigationBarView == null || !mNavigationBarView.isAttachedToWindow()) return;
 
-        CustomTheme newTheme = mContext.getResources().getConfiguration().customTheme;
+        ThemeConfig newTheme = mContext.getResources().getConfiguration().themeConfig;
         if (newTheme != null &&
                 (mCurrentTheme == null || !mCurrentTheme.equals(newTheme))) {
             // Nevermind, this will be re-created
@@ -4428,22 +4427,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         final Context context = mContext;
         final Resources res = context.getResources();
 
-        // detect theme change
-        CustomTheme newTheme = res.getConfiguration().customTheme;
-        if (newTheme != null &&
-                (mCurrentTheme == null || !mCurrentTheme.equals(newTheme))) {
-            mCurrentTheme = (CustomTheme)newTheme.clone();
-            recreateStatusBar(false);
-            return;
-        }
-
         // detect theme ui mode change
         int uiThemeMode = res.getConfiguration().uiThemeMode;
         if (uiThemeMode != mCurrUiThemeMode) {
             mCurrUiThemeMode = uiThemeMode;
             recreateStatusBar(false);
             rebuildRecentsScreen();
-            return;
         }
 
         // detect density change
@@ -4455,11 +4444,19 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             return;
         }
 
-        if (mClearButton instanceof TextView) {
-            ((TextView)mClearButton).setText(
-                    context.getText(R.string.status_bar_clear_all_button));
+        // detect theme change.
+        ThemeConfig newTheme = res.getConfiguration().themeConfig;
+        if (newTheme != null &&
+                (mCurrentTheme == null || !mCurrentTheme.equals(newTheme))) {
+            mCurrentTheme = (ThemeConfig)newTheme.clone();
+            recreateStatusBar(false);
+        } else {
+            if (mClearButton instanceof TextView) {
+                ((TextView)mClearButton).setText(
+                        context.getText(R.string.status_bar_clear_all_button));
+            }
+            loadDimens();
         }
-        loadDimens();
 
         // check for orientation change and update only the container layout
         // for all other configuration changes update complete QS

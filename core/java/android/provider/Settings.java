@@ -4219,12 +4219,6 @@ public final class Settings {
         public static final String CAMERA_MUSIC_CONTROLS = "camera_music_controls";
 
         /**
-         * Alt Activity Resolver Grid
-         * @hide
-         */
-        public static final String ACTIVITY_RESOLVER_USE_ALT = "activity_resolver_use_alt";
-
-        /**
          * Allows to show the background activity back the lockscreen
          * @hide
          */

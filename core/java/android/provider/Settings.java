@@ -4844,13 +4844,20 @@ public final class Settings {
          * @hide
          */
         public static final String HOVER_EXCLUDE_LOW_PRIORITY = "hover_exclude_low_priority";
-		
+
         /**
          * Hover: Option to exclude topmost app, default is 1 (on).
          *
          * @hide
          */
         public static final String HOVER_EXCLUDE_TOPMOST = "hover_exclude_topmost";
+
+         /**
+         * Hover: long fade out delay, default is 5000ms (5s).
+         *
+         * @hide
+         */
+        public static final String HOVER_LONG_FADE_OUT_DELAY = "hover_long_fade_out_delay";
 
         /**
          * Show the pending notification counts as overlays on the status bar

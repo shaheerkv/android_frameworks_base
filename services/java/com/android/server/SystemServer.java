@@ -926,6 +926,11 @@ class ServerThread {
             VMRuntime.getRuntime().startJitCompilation();
         }
 
+        if (accountManager != null) {
+            accountManager.setSafeMode(safeMode);
+        }
+
+
         // It is now time to start up the app processes...
 
         try {

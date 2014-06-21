@@ -4751,6 +4751,12 @@ public final class Settings {
         public static final String GESTURE_ANYWHERE_CHANGED = "gesture_anywhere_changed";
 
         /**
+         * Disable Immersive Message
+         * @hide
+         */
+        public static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
+
+        /**
          * Width of the gesture anywhere trigger.
          * @hide
          */

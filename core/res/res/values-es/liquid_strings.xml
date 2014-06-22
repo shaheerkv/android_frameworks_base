@@ -17,13 +17,13 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="permlab_changePrivacyGuardState">activar o desactivar el protector de privacidad</string>
+  <string name="permlab_changePrivacyGuardState">habilitar o deshabilitar la privacidad</string>
   <string name="permdesc_changePrivacyGuardState">Permite a la aplicación cambiar si otra aplicación se ejecuta con Privacy Guard. Cuando una aplicación se está ejecutando con Privacy Guard, no tendrá acceso a datos personales tales como contactos, registros de llamadas o mensajes.</string>
-  <string name="privacy_guard_notification">Gestor de privacidad activo</string>
+  <string name="privacy_guard_notification">Privacidad activada</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no podrá acceder a tus datos personales</string>
   <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> no será capaz de acceder a permisos personalizados</string>
   <string name="default_string">Por defecto</string>
-  <string name="reboot_system" product="tablet">Reiniciar Tablet</string>
+  <string name="reboot_system" product="tablet">Reiniciar tablet</string>
   <string name="reboot_system" product="default">Reiniciar teléfono</string>
   <string name="global_action_screenshot">Captura de pantalla</string>
   <string name="reboot_reboot">Reiniciar</string>
@@ -55,7 +55,7 @@
   <string name="permlab_recordScreen">Contenido grabado esta siendo mostrado</string>
   <string name="permdesc_recordScreen">Permitir a las aplicaciones grabar la pantalla del usuario.</string>
   <string name="permlab_revokePermissions">Permite ver y editar permisos revocados. No usar en aplicaciones normales.</string>
-  <string name="permdesc_revokePermissions">Permite la lectura y escritura de permisos revocados. No usar en aplicaciones normales.</string>
+  <string name="permdesc_revokePermissions">Permite leer y escribir para permisos revocados. No para el uso de las aplicaciones normales.</string>
   <string name="floating_window_snap_top">Anclar en la parte superior</string>
   <string name="floating_window_snap_bottom">Anclar en la parte inferior</string>
   <string name="floating_window_snap_left">Anclar a la izquierda</string>
@@ -63,8 +63,8 @@
   <string name="animation_fade">Desvanecer</string>
   <string name="animation_slide_right">Deslizar a la derecha</string>
   <string name="animation_slide_left">Deslizar a la izquierda</string>
-  <string name="animation_slide_right_no_fade">Deslizar a la derecha (Sin fade)</string>
-  <string name="animation_slide_left_no_fade">Deslizar a la izquieda (sin desvanecerse)</string>
+  <string name="animation_slide_right_no_fade">Deslizar a la derecha (Sin desvanecimiento)</string>
+  <string name="animation_slide_left_no_fade">Deslizar a la izquierda (Sin desvanecimiento)</string>
   <string name="animation_slide_up">Deslizar desde abajo</string>
   <string name="animation_slide_down">Deslizar desde arriba</string>
   <string name="animation_default">Por defecto</string>
@@ -76,4 +76,21 @@
   <string name="animation_grow_shrink_right">Crecer (Derecha)</string>
   <string name="action_null">En blanco</string>
   <string name="global_action_onthego">Modo On-The-Go</string>
+  <string name="setting_confirmation_ask_me_later">Preguntar más tarde</string>
+  <string name="setting_confirmation_yes">Sí</string>
+  <string name="setting_confirmation_no">No</string>
+  <string name="profile_picker_title">Perfiles</string>
+  <string name="profile_none">Ninguno</string>
+  <string name="profileNameDefault">Por defecto</string>
+  <string name="profileNameWork">Trabajo</string>
+  <string name="profileNameHome">Inicio</string>
+  <string name="profileNameSilent">Silencioso</string>
+  <string name="profileNameNight">Noche</string>
+  <string name="profileNameAutomobile">Coche</string>
+  <string name="profileGroupPhone">Teléfono</string>
+  <string name="profileGroupCalendar">Calendario</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">Correo electrónico</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Otros</string>
 </resources>

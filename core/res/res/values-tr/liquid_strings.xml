@@ -17,18 +17,18 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="permlab_changePrivacyGuardState">Özel Korumayı Etkinleştir veya Kapat</string>
+  <string name="permlab_changePrivacyGuardState">Gizlilik korumasını etkinleştir ya da devre dışı bırak</string>
   <string name="permdesc_changePrivacyGuardState">Uygulamaya başka bir uygulamanın Gizlilik Korumasını kullanıp kullanamayacağını belirleme olanağı verir. Bir uygulamanın Gizlilik Koruması ile çalışırken, kişiler, arama kayıtları, ya da mesajlar gibi kişisel bilgilere ulaşımı olmayacak.</string>
   <string name="privacy_guard_notification">Gizlilik Koruması aktif</string>
-  <string name="privacy_guard_notification_detail">kişisel bilgilere ulaşamayacak</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> kişisel bilgilere ulaşamayacak</string>
   <string name="privacy_guard_custom_notification_detail"><xliff:g id="app"> %1$s </xliff:g>-ecek değil muktedir özel izinler erişim</string>
   <string name="default_string">Varsayılan</string>
   <string name="reboot_system" product="tablet">Tableti Yeniden Başlat</string>
-  <string name="reboot_system" product="default">Yeniden Başlat</string>
+  <string name="reboot_system" product="default">Telefonu Yeniden Başlat</string>
   <string name="global_action_screenshot">Ekran görüntüsü</string>
   <string name="reboot_reboot">Yeniden Başlat</string>
   <string name="reboot_recovery">Kurtarma modu</string>
-  <string name="reboot_bootloader">Ön yükleyici</string>
+  <string name="reboot_bootloader">Ön yükleyici Bootloader</string>
   <string name="reboot_bootmenu">Boot menüsü</string>
   <string name="reboot_fastboot">Fastboot</string>
   <string name="reboot_download">İndir</string>
@@ -50,7 +50,7 @@
   <string name="theme_auto_switch_mode_error">Otomatik ışık durumu değişikliği modu etkin. Manuel geçiş mümkün değildir.</string>
   <string name="permlab_accessThemeService">Tema Yöneticisi hizmete erişim sağlar. Normal uygulamalar tarafından kullanım için değil.</string>
   <string name="permdesc_accessThemeService">Set/reset Temalar için bir uygulama sağlar. Normal uygulamalar tarafından kullanım için değil.</string>
-  <string name="permlab_preventpower">Güç tuşunu engelle</string>
+  <string name="permlab_preventpower">güç tuşunu engelle</string>
   <string name="permdesc_preventpower">Güç tuşunu geçersiz kılmak için bir uygulamaya izin verir</string>
   <string name="permlab_recordScreen">Görüntülemek için içeriği kaydet</string>
   <string name="permdesc_recordScreen">Kullanıcı ekranını kaydetmek için uygulamaya izin ver.</string>
@@ -76,4 +76,21 @@
   <string name="animation_grow_shrink_right">Büyüt (Sağdan)</string>
   <string name="action_null">Boş</string>
   <string name="global_action_onthego">Yürüme Modu</string>
+  <string name="setting_confirmation_ask_me_later">Daha sonra sor</string>
+  <string name="setting_confirmation_yes">Evet</string>
+  <string name="setting_confirmation_no">Hayır</string>
+  <string name="profile_picker_title">Profiller</string>
+  <string name="profile_none">Hiçbiri</string>
+  <string name="profileNameDefault">Varsayılan</string>
+  <string name="profileNameWork">İş</string>
+  <string name="profileNameHome">Ana sayfa</string>
+  <string name="profileNameSilent">Sessiz</string>
+  <string name="profileNameNight">Gece</string>
+  <string name="profileNameAutomobile">Otomobil</string>
+  <string name="profileGroupPhone">Telefon</string>
+  <string name="profileGroupCalendar">Takvim</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">E-posta</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Diğer</string>
 </resources>

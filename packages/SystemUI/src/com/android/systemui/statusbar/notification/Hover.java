@@ -339,6 +339,10 @@ public class Hover {
         return mKeyguardManager.isKeyguardLocked() && mKeyguardManager.isKeyguardSecure();
     }
 
+    public boolean isKeyguardInsecureShowing() {
+        return mKeyguardManager.isKeyguardLocked();
+    }
+
     public boolean isShowing() {
         return mShowing;
     }
@@ -403,6 +407,11 @@ public class Hover {
     public boolean excludeTopmost() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HOVER_EXCLUDE_TOPMOST, 0) != 0;
+    }
+
+    public boolean excludeFromLockScreen() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HOVER_EXCLUDE_FROM_LOCK_SCREEN, 0) != 0;
     }
 
     public int longFadeOutDelay() {
@@ -726,7 +735,8 @@ public class Hover {
         }
 
         // second, if we've just expanded statusbar or turned screen off return
-        if (!isScreenOn() | isStatusBarExpanded() | isKeyguardSecureShowing()) {
+        if (!isScreenOn() | isStatusBarExpanded() | isKeyguardSecureShowing() |
+        	    (!excludeFromLockScreen() && isKeyguardInsecureShowing())) {
             if (mShowing) {
                 dismissHover(true, true);
             } else {

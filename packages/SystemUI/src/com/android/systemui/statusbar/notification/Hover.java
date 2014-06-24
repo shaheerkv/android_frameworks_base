@@ -395,7 +395,10 @@ public class Hover {
     }
 
     public void showCurrentNotification() {
+        clearForegroundAppNotifications();
+
         final HoverNotification currentNotification = getHoverNotification(INDEX_CURRENT);
+
         if (currentNotification != null && !isKeyguardSecureShowing() && !isStatusBarExpanded()
                 && mHoverActive && !mShowing && isScreenOn() && !isSimPanelShowing()
                 && !mNotificationHelper.isPeekShowing()) {
@@ -466,6 +469,8 @@ public class Hover {
     }
 
     private void overrideShowingNotification() {
+        clearForegroundAppNotifications();
+
         final HoverNotification currentNotification = getCurrentNotification();
         final HoverNotification nextNotification = getHoverNotification(INDEX_NEXT);
 
@@ -631,10 +636,11 @@ public class Hover {
 
     // notifications processing
     public void setNotification(Entry entry, boolean update) {
-        // first, check if current notification's package is blacklisted or excluded in another way
+        // first, check if current notification's package
+        // is blacklisted and/or comes from foreground app
         boolean allowed = true; // default on
+        boolean foreground = false; // default off
 
-        //Exclude blacklisted
         try {
             final String packageName = entry.notification.getPackageName();
             allowed = mStatusBar.getNotificationManager().isPackageAllowedForHover(packageName);
@@ -668,7 +674,11 @@ public class Hover {
                 mNotificationHelper.getForegroundPackageName()))
             allowed = false;
 
-        if (!allowed) {
+        if (entry.notification.getPackageName().equals(
+                mNotificationHelper.getForegroundPackageName()))
+        foreground = true;
+
+        if (!allowed | foreground) {
             addStatusBarNotification(entry.notification);
             return;
         }
@@ -854,6 +864,15 @@ public class Hover {
 
     public void clearNotificationList() {
         reparentAllNotifications();
+    }
+
+    public void clearForegroundAppNotifications() {
+        for (int i = 0; i < mNotificationList.size(); i++) {
+            if (mNotificationList.get(i).getContent().getPackageName()
+                    .equals(mNotificationHelper.getForegroundPackageName())) {
+                mNotificationList.remove(i);
+            }
+        }
     }
 
     public void reparentAllNotifications() {

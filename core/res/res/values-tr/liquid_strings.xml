@@ -93,4 +93,6 @@
   <string name="profileGroupEmail">E-posta</string>
   <string name="profileGroupSMS">SMS</string>
   <string name="wildcardProfile">Diğer</string>
+  <string name="permlab_interceptSmsSent">Giden SMS\'i durdur</string>
+  <string name="permdesc_interceptSmsSent">Uygulamanın giden bir SMS\'i durdurmasına olanak verir. Kötücül uygulamalar giden SMSleri engellemek için bu özelliği kullanabilir.</string>
 </resources>

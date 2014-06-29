@@ -93,4 +93,6 @@
   <string name="profileGroupEmail">Correo electrónico</string>
   <string name="profileGroupSMS">SMS</string>
   <string name="wildcardProfile">Otros</string>
+  <string name="permlab_interceptSmsSent">interceptar mensajes SMS salientes</string>
+  <string name="permdesc_interceptSmsSent">Permite que la aplicación intercepte mensajes SMS salientes. Las aplicaciones maliciosas pueden impedir los mensajes SMS salientes.</string>
 </resources>

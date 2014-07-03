@@ -297,4 +297,7 @@
   <!-- Maximum wallpaper width -->
   <java-symbol type="integer" name="config_wallpaperMaxWidth" />
 
+  <!-- Wifi tethering-->
+  <java-symbol type="plurals" name="tethered_clients_connected" />
+
 </resources>

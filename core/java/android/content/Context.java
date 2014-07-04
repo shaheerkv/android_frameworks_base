@@ -2487,16 +2487,6 @@ public abstract class Context {
     public static final String THEME_SERVICE = "themes";
 
     /**
-     * Use with {@link #getSystemService} to retrieve a
-     * {@link android.os.BatteryManager} for access battery information.
-     *
-     * @see #getSystemService
-     * @see android.os.BatteryManager
-     * @hide
-     */
-    public static final String BATTERY_SERVICE = "battery";
-
-    /**
      * Determine whether the given permission is allowed for a particular
      * process and user ID running in the system.
      *

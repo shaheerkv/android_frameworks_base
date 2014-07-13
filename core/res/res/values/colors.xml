@@ -242,4 +242,7 @@
     <!-- Volume panel -->
     <color name="volume_panel_bg">#cc111111</color>
 
+    <!-- Action(s) list background used on expanded notifications -->
+    <drawable name="notification_action_list_bg">#00000000</drawable>
+
 </resources>

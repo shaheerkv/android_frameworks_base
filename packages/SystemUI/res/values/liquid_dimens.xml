@@ -85,4 +85,6 @@
     <!-- WiFi combo margin -->
     <dimen name="wifi_combo_margin_end">-6dp</dimen>
 
+    <dimen name="weather_text_margin">56dp</dimen>
+
 </resources>

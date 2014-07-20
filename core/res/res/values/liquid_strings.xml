@@ -161,6 +161,8 @@
     <string name="setting_confirmation_ask_me_later">Ask later</string>
     <string name="setting_confirmation_yes">Yes</string>
     <string name="setting_confirmation_no">No</string>
+    <string name="setting_reset_title">To Reset Swipe left to float</string>
+    <string name="setting_reset_message">Open Settings\n--&gt; Backup &amp; reset\n----&gt; Reset preferences.</string>
 
     <!-- WiFi turn off notification -->
     <string name="notify_turn_wifi_off_title">Turn Wi-Fi off</string>

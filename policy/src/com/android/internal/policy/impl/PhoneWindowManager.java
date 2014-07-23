@@ -459,8 +459,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mSearchKeyShortcutPending;
     boolean mConsumeSearchKeyUp;
 
-    boolean mCallInBackground;
-
     // support for activating the lock screen while the screen is on
     boolean mAllowLockscreenWhenOn;
     int mLockScreenTimeout;
@@ -666,8 +664,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.EXPANDED_DESKTOP_STYLE), false, this,
                     UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.CALL_UI_IN_BACKGROUND), false, this);
             updateSettings();
         }
 
@@ -1543,10 +1539,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         Settings.System.EXPANDED_DESKTOP_STATE, 0, UserHandle.USER_CURRENT) == 0) {
                 mExpandedDesktopStyle = 1;
             }
-
-            // Call in background is no multiuser setting.
-            mCallInBackground = Settings.System.getInt(resolver,
-                    Settings.System.CALL_UI_IN_BACKGROUND, 1) == 1;
 
             // Configure rotation lock.
             int userRotation = Settings.System.getIntForUser(resolver,
@@ -2476,14 +2468,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
                 // If an incoming call is ringing, HOME is totally disabled.
                 // (The user is already on the InCallScreen at this point,
-                // and his ONLY options are to answer or reject the call as long
-                // it is not a call in background)
-                final boolean isCallInBackground = mCallInBackground
-                        && isScreenOnFully() && !keyguardIsShowingTq();
+                // and his ONLY options are to answer or reject the call.)
                 try {
                     ITelephony telephonyService = getTelephonyService();
-                    if (telephonyService != null && telephonyService.isRinging()
-                            && !isCallInBackground) {
+                    if (telephonyService != null && telephonyService.isRinging()) {
                         Log.i(TAG, "Ignoring HOME; there's a ringing incoming call.");
                         return -1;
                     }

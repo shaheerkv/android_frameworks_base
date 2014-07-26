@@ -182,9 +182,7 @@ public class NotificationHelper {
             boolean makeFloating = floating
                     && !isNotificationBlacklisted(entry.notification.getPackageName())
                     // if the notification is from the foreground app, don't open in floating mode
-                    && !entry.notification.getPackageName().equals(getForegroundPackageName())
-                    // if user is on default launcher, don't open in floating window
-                    && !isUserOnLauncher();
+                    && !entry.notification.getPackageName().equals(getForegroundPackageName());
 
             intent.makeFloating(makeFloating);
         }
@@ -200,25 +198,11 @@ public class NotificationHelper {
                     entry.notification.getId());
             boolean makeFloating =
                     // if the notification is from the foreground app, don't open in floating mode
-                    !entry.notification.getPackageName().equals(getForegroundPackageName())
-                    // if user is on default launcher, don't open in floating window
-                    && !isUserOnLauncher();
+                    !entry.notification.getPackageName().equals(getForegroundPackageName());
 
             intent.makeFloating(makeFloating);
         }
         return intent;
-    }
-
-    public boolean isUserOnLauncher() {
-        // Get default launcher name
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        ResolveInfo resolveInfo = mContext.getPackageManager().resolveActivity(intent,
-                                              PackageManager.MATCH_DEFAULT_ONLY);
-        String currentHomePackage = resolveInfo.activityInfo.packageName;
-
-        // compare and return result
-        return getForegroundPackageName().equals(currentHomePackage);
     }
 
     public void applyStyle(SizeAdaptiveLayout layout, int style) {

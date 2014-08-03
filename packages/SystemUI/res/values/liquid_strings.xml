@@ -285,4 +285,10 @@
     <string name="status_bar_notification_heads_up_disable_title">Disable heads up</string>
     <string name="heads_up_snooze_message">Heads up is disabled for <xliff:g id="number">%d</xliff:g> minutes.</string>
 
+    <!--Show plug type for battery tile -->
+    <string name="power_ac"> (AC)</string>
+    <string name="power_usb"> (USB)</string>
+    <string name="power_wireless"> (wireless)</string>
+    <string name="power_ac_usb"> (AC+USB)</string>
+
 </resources>

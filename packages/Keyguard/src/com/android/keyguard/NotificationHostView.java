@@ -60,7 +60,7 @@ public class NotificationHostView extends FrameLayout {
     private static final float SWIPE = 0.2f;
     private static final int ANIMATION_MAX_DURATION = 300;
     private static final int PPMS = 2;
-    private static final int MAX_ALPHA = 190;
+    private static final int MAX_ALPHA = 200;
 
     //Here we store dimissed notifications so we don't add them again in onFinishInflate
     private static HashMap<String, StatusBarNotification> mDismissedNotifications = new HashMap<String, StatusBarNotification>();
@@ -73,8 +73,7 @@ public class NotificationHostView extends FrameLayout {
     private int mNotificationMinHeight, mNotificationMinRowHeight;
     private int mDisplayWidth, mDisplayHeight;
     private int mShownNotifications = 0;
-    private boolean mDynamicWidth = false;
-    private boolean disableHeadsup = false;
+    private boolean mDynamicWidth;
 
     private ViewMediatorCallback mViewMediatorCallback;
     private LinearLayout mNotifView;
@@ -615,8 +614,8 @@ public class NotificationHostView extends FrameLayout {
         setButtonDrawable();
     }
 
-    public void disableLockScreenHeadsUp() {
-        disableHeadsup = Settings.System.getInt(mContext.getContentResolver(),
+    public void showAllNotifications() {
+        boolean disableHeadsup = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_NOTIFICATIONS_DISABLE_HEADS_UP, 0) == 1;
 
         if (disableHeadsup) {
@@ -631,10 +630,6 @@ public class NotificationHostView extends FrameLayout {
                 // This should never happen
             }
         }
-    }
-
-    public void showAllNotifications() {
-        disableLockScreenHeadsUp();
         for (NotificationView nv : mNotifications.values()) {
             showNotification (nv);
         }
@@ -732,7 +727,6 @@ public class NotificationHostView extends FrameLayout {
     }
 
     public void bringToFront() {
-        disableLockScreenHeadsUp();
         mNotifView.bringToFront();
         super.bringToFront();
     }

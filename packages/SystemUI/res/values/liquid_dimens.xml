@@ -85,9 +85,6 @@
     <!-- WiFi combo margin -->
     <dimen name="wifi_combo_margin_end">-6dp</dimen>
 
-    <!-- Weather text -->
-    <dimen name="weather_text_margin">56dp</dimen>
-
     <!-- Heads up -->
     <dimen name="heads_up_bottom_gap">5dp</dimen>
 

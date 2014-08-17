@@ -5139,13 +5139,6 @@ public final class Settings {
         public static final String IME_CURSOR_LONGPRESS_ACTION = "ime_cursor_longpress_action";
 
         /**
-         * Recent panel background color
-         *
-         * @hide
-         */
-        public static final String RECENT_PANEL_BG_COLOR = "recent_panel_bg_color";
-
-        /**
          * Heads up: Option to exclude from lockscreen, default is 0 (off).
          *
          * @hide

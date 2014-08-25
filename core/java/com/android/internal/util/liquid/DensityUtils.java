@@ -71,13 +71,9 @@ public class DensityUtils {
     }
 
     public static int getMinimumDensity() {
-        int min = -1;
-        int[] densities = { 91, 121, 161, 241, 321, 481 };
-        for (int density : densities) {
-            if (density < mMaxDensity) {
-                min = density;
-            }
-        }
-        return min;
+
+        int min = 161;
+
+    return min;
     }
 }

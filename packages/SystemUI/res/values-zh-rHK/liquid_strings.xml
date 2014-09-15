@@ -20,12 +20,12 @@
   <string name="quick_settings_battery_charging">Charging</string>
   <string name="quick_settings_battery_discharging">Discharging</string>
   <string name="app_killed_message">App Killed</string>
-  <string name="screenshot_notification_delete">Esborrar</string>
+  <string name="screenshot_notification_delete">Delete</string>
   <string name="screenshot_delete_confirmation">Screenshot deleted</string>
   <string name="accessibility_data_connection_HP">HSPA+</string>
-  <string name="cancel">Cancel·lar</string>
+  <string name="cancel">Cancel</string>
   <string name="dlg_ok">Ok</string>
-  <string name="yes">Si</string>
+  <string name="yes">Yes</string>
   <string name="no">No</string>
   <string name="off">Off</string>
   <string name="on">On</string>
@@ -35,8 +35,8 @@
   <string name="shortcut_quiethours">Quiethours (ignores time constraints)</string>
   <string name="shortcut_rotation">Rotation</string>
   <string name="shortcut_shakeevent">Shake events</string>
-  <string name="shortcut_torch">Torxa</string>
-  <string name="shortcut_reboot">Reiniciar</string>
+  <string name="shortcut_torch">Torch</string>
+  <string name="shortcut_reboot">Reboot</string>
   <string name="shortcut_recovery">Recovery</string>
   <string name="shortcut_last_app">Last App</string>
   <string name="shortcut_screenshot">Screenshot</string>
@@ -64,13 +64,13 @@
   <string name="quick_settings_vibration_off">Vibration off</string>
   <string name="quick_settings_label_enabled">On</string>
   <string name="quick_settings_label_disabled">Off</string>
-  <string name="quick_settings_ringer_normal">So</string>
-  <string name="quick_settings_lockscreen">Pantalla de bloqueig</string>
+  <string name="quick_settings_ringer_normal">Sound</string>
+  <string name="quick_settings_lockscreen">Lock screen</string>
   <string name="quick_settings_network_type">Status</string>
   <string name="quick_settings_report_bug">Report bug</string>
   <string name="quick_settings_sync">Sync</string>
   <string name="quick_settings_sync_off">Sync off</string>
-  <string name="quick_settings_torch">Torxa</string>
+  <string name="quick_settings_torch">Torch</string>
   <string name="quick_settings_torch_off">Torch off</string>
   <string name="quick_settings_nfc">NFC</string>
   <string name="quick_settings_nfc_off">NFC off</string>
@@ -98,7 +98,7 @@
   <string name="quick_settings_music_schedule_cancel">Clear timer</string>
   <string name="quick_settings_music_schedule_update">Update timer</string>
   <string name="quick_settings_reboot_recovery">Recovery</string>
-  <string name="quick_settings_reboot">Reiniciar</string>
+  <string name="quick_settings_reboot">Reboot</string>
   <string name="quick_settings_theme_switch_dark">Dark theme</string>
   <string name="quick_settings_theme_switch_light">Light theme</string>
   <string name="quick_settings_quick_record_deleted">Deleted...</string>
@@ -126,7 +126,7 @@
   <string name="quick_settings_reminder_help_message">Touch the empty space above to set or change the reminder. Long-press to clear the current reminder.</string>
   <string name="quick_settings_battery_saver_label">Battery saver</string>
   <string name="quick_settings_network_type">Status</string>
-  <string name="quick_settings_network_unknown">Desconegut</string>
+  <string name="quick_settings_network_unknown">Unknown</string>
   <string name="quick_settings_network_disable">No internet</string>
   <string name="quick_settings_compass_off">Compass off</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
@@ -155,7 +155,7 @@
   <string name="battery_saver_enable_title">Battery saver mode</string>
   <string name="battery_saver_airplane_ticker">Airplane mode enabled by battery saver</string>
   <string name="battery_saver_airplane_text">Airplane mode enabled by battery saver because there is no signal after 5 minutes</string>
-  <string name="battery_saver_disable">Desactiva</string>
+  <string name="battery_saver_disable">Disable</string>
   <string name="quick_settings_hover">Hover</string>
   <string name="pie_battery_status_charging">Charging (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Charged</string>
@@ -192,7 +192,7 @@
   <string name="quick_settings_onthego_back">Rear Camera</string>
   <string name="quick_settings_onthego_front">Front Camera</string>
   <string name="quick_settings_fcharge_on_label">Fast charge</string>
-  <string name="quick_settings_fcharge_off_label">Desactivat</string>
+  <string name="quick_settings_fcharge_off_label">Disabled</string>
   <string name="app_stop_item_title">Kill app</string>
   <string name="app_float_maximize_item_title">Maximize</string>
   <string name="app_float_item_title">Float view</string>

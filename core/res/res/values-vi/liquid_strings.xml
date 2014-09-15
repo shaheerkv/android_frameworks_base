@@ -93,7 +93,10 @@
   <string name="setting_confirmation_no">Không</string>
   <string name="setting_reset_hint_title">Để thiết lập lại tùy chọn:</string>
   <string name="setting_reset_hint_message">
-        <! [CDATA [<p>mở <b>cài đặt</b> <br/>         Dưới cá nhân chia: <b>Sao lưu &amp; Thiết lập lại</b> <br/> dưới cá nhân hoá chia: <b>đặt lại tuỳ chọn</b></p>]] ></string>
+        <![CDATA[<p>mở <b>cài đặt</b> <br/>
+        Dưới cá nhân chia: <b>Sao lưu &amp; Thiết lập lại</b> <br/>
+        dưới cá nhân hoá chia: <b>đặt lại tuỳ chọn</b></p>
+        ]]></string>
   <string name="notify_turn_wifi_off_title">Tắt Wi-Fi</string>
   <string name="permlab_interceptSmsSent">chặn gửi đi tin nhắn SMS</string>
   <string name="permdesc_interceptSmsSent">Cho phép các ứng dụng để chặn một tin nhắn SMS gửi đi. Có thể sử dụng để ngăn chặn ứng dụng độc hại gửi đi tin nhắn SMS.</string>

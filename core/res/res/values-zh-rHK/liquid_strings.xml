@@ -17,15 +17,15 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="permlab_changePrivacyGuardState">enable or disable privacy guard</string>
+  <string name="permlab_changePrivacyGuardState">啟用或停用私隱守衛</string>
   <string name="permdesc_changePrivacyGuardState">Allows the app to change whether another app runs with Privacy Guard. When an app is running with Privacy Guard, it will not have access to personal data such as contacts, call logs, or messages.</string>
   <string name="privacy_guard_notification">Privacy Guard active</string>
   <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access personal data</string>
   <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access custom permissions</string>
-  <string name="default_string">Default</string>
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
-  <string name="global_action_screenshot">Screenshot</string>
+  <string name="default_string">預設</string>
+  <string name="reboot_system" product="tablet">重新啟動平板電腦</string>
+  <string name="reboot_system" product="default">重新啟動電話</string>
+  <string name="global_action_screenshot">螢幕截圖</string>
   <string name="reboot_reboot">Reboot</string>
   <string name="reboot_recovery">Recovery</string>
   <string name="reboot_bootloader">Bootloader</string>

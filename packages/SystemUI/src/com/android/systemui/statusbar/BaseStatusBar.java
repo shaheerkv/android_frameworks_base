@@ -907,6 +907,8 @@ public abstract class BaseStatusBar extends SystemUI implements
                             .findItem(R.id.notification_inspect_item_force_stop).setVisible(false);
                     mNotificationBlamePopup.getMenu()
                             .findItem(R.id.notification_inspect_item_wipe_app).setVisible(false);
+                    mNotificationBlamePopup.getMenu()
+                            .findItem(R.id.notification_inspect_item_uninstall).setVisible(false);
                 } else {
                     try {
                         PackageManager pm = (PackageManager) mContext.getPackageManager();
@@ -919,6 +921,8 @@ public abstract class BaseStatusBar extends SystemUI implements
                               || mDpm.packageHasActiveAdmins(packageNameF)) {
                             mNotificationBlamePopup.getMenu()
                             .findItem(R.id.notification_inspect_item_wipe_app).setEnabled(false);
+                            mNotificationBlamePopup.getMenu()
+                            .findItem(R.id.notification_inspect_item_uninstall).setEnabled(false);
                         }
                     } catch (NameNotFoundException ex) {
                         Slog.e(TAG, "Failed looking up ApplicationInfo for " + packageNameF, ex);
@@ -981,6 +985,13 @@ public abstract class BaseStatusBar extends SystemUI implements
                             }
                         } else if (item.getItemId() == MENU_HEADS_UP_ID) {
                             mPm.setHeadsUpSetting(packageNameF, !isHeadsUp);
+                        } else if (item.getItemId() == R.id.notification_inspect_item_uninstall) {
+                            Uri packageURI = Uri.parse("package:"+packageNameF);
+                            Intent uninstallIntent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageURI);
+                            uninstallIntent.putExtra(Intent.EXTRA_UNINSTALL_ALL_USERS, true);
+                            uninstallIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            mContext.startActivity(uninstallIntent);
+                            animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
                         } else {
                             return false;
                         }

@@ -30,17 +30,17 @@
         \n\nПовторіть спробу через <xliff:g id="number">%d</xliff:g> сек.
     </string>
   <plurals name="missed_calls">
-    <item quantity="one">%d missed call</item>
-    <item quantity="few">%d missed calls</item>
-    <item quantity="other">%d missed calls</item>
+    <item quantity="one">%d пропущений дзвінок</item>
+    <item quantity="few">%d пропущених дзвінків</item>
+    <item quantity="other">%d пропущених дзвінків</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="one">%d unread message</item>
-    <item quantity="few">%d unread messages</item>
-    <item quantity="other">%d unread messages</item>
+    <item quantity="one">%d непрочитане повідомлення</item>
+    <item quantity="few">%d непрочитаних повідомлень</item>
+    <item quantity="other">%d непрочитаних повідомлень</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="missed_call">пропущений дзвінок</string>
+  <string name="message_from">повідомлення від</string>
+  <string name="message_from_person">повідомлення від %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

@@ -30,17 +30,17 @@
         \n\nZkuste to znovu za <xliff:g id="number">%d</xliff:g> sekund.
     </string>
   <plurals name="missed_calls">
-    <item quantity="one">%d missed call</item>
-    <item quantity="few">%d missed calls</item>
-    <item quantity="other">%d missed calls</item>
+    <item quantity="one">%d zmeškaný hovor</item>
+    <item quantity="few">%d zmeškané hovory</item>
+    <item quantity="other">%d zmeškaných hovorů</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="one">%d unread message</item>
-    <item quantity="few">%d unread messages</item>
-    <item quantity="other">%d unread messages</item>
+    <item quantity="one">%d nepřečtená zpráva</item>
+    <item quantity="few">%d nepřečtené zprávy</item>
+    <item quantity="other">%d nepřečtených zpráv</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="missed_call">zmeškaný hovor</string>
+  <string name="message_from">zpráva od</string>
+  <string name="message_from_person">zpráva od %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

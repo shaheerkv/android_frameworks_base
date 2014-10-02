@@ -85,11 +85,11 @@
   <string name="quick_settings_quiethours_off">Quiet hours off</string>
   <string name="quick_settings_lte">LTE</string>
   <string name="quick_settings_lte_off">LTE off</string>
-  <string name="quick_settings_shakeevents">Shake events</string>
+  <string name="quick_settings_shakeevents">晃动事件</string>
   <string name="quick_settings_shakeevents_off">Shake events off</string>
   <string name="quick_settings_volume">Volume</string>
   <string name="quick_settings_expanded_desktop">Expanded</string>
-  <string name="quick_settings_expanded_desktop_off">Normal</string>
+  <string name="quick_settings_expanded_desktop_off">正常</string>
   <string name="quick_settings_music_play">Play</string>
   <string name="quick_settings_music_pause">Pause</string>
   <string name="quick_settings_music_schedule_title">Sleep timer</string>

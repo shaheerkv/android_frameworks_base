@@ -46,8 +46,8 @@
     <item quantity="many">%d unread messages</item>
     <item quantity="other">%d unread messages</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
+  <string name="missed_call">مكالمة فائتة</string>
+  <string name="message_from">رسالة من</string>
   <string name="message_from_person">message from %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

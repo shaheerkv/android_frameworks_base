@@ -30,14 +30,14 @@
          <xliff:g id="number">%d</xliff:g> alkalommal rosszul rajzolta le feloldási mintát.                       "\n\n"Kérjük, <xliff:g id="number">%d</xliff:g> másodperc múlva próbálja újra.
     </string>
   <plurals name="missed_calls">
-    <item quantity="one">%d missed call</item>
-    <item quantity="other">%d missed calls</item>
+    <item quantity="one">%d nem fogadott hívás</item>
+    <item quantity="other">%d nem fogadott hívások</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="one">%d unread message</item>
-    <item quantity="other">%d unread messages</item>
+    <item quantity="one">%d olvasatlan üzenet</item>
+    <item quantity="other">%d olvasatlan üzenetek</item>
   </plurals>
-  <string name="missed_call">missed call</string>
+  <string name="missed_call">Nem fogadott hívás</string>
   <string name="message_from">message from</string>
   <string name="message_from_person">message from %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>

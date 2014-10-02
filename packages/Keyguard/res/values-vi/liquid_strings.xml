@@ -31,13 +31,13 @@
         \n\nTry again in <xliff:g id="number">%d</xliff:g> seconds.
     </string>
   <plurals name="missed_calls">
-    <item quantity="other">%d missed calls</item>
+    <item quantity="other">%d cuộc gọi nhỡ</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="other">%d unread messages</item>
+    <item quantity="other">%d thư chưa đọc</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="missed_call">Cuộc gọi nhỡ</string>
+  <string name="message_from">Các tin nhắn từ</string>
+  <string name="message_from_person">tin nhắn từ %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

@@ -31,12 +31,12 @@
         \n\nTry again in <xliff:g id="number">%d</xliff:g> seconds.
     </string>
   <plurals name="missed_calls">
-    <item quantity="other">%d missed calls</item>
+    <item quantity="other">%d 個未接來電</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="other">%d unread messages</item>
+    <item quantity="other">%d 則未讀訊息</item>
   </plurals>
-  <string name="missed_call">missed call</string>
+  <string name="missed_call">未接來電</string>
   <string name="message_from">message from</string>
   <string name="message_from_person">message from %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>

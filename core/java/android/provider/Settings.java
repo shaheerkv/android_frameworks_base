@@ -4578,25 +4578,6 @@ public final class Settings {
         public static final String NOTIFICATION_VIBRATE_DURING_ALERTS_DISABLED = "vibrate_while_no_alerts";
 
         /**
-         * Whether wifi settings will connect to access point automatically
-         * 0 = automatically
-         * 1 = manually
-         * @hide
-         */
-        public static final String WIFI_AUTO_CONNECT_TYPE = "wifi_auto_connect_type";
-
-        /**
-         * Whether wifi settings will connect to access point automatically when
-         * network from mobile network transform to Wifi network
-         * 0 = automatically
-         * 1 = manually
-         * 2 = always ask
-         *
-         * @hide
-         */
-        public static final String DATA_TO_WIFI_CONNECT_TYPE = "data_to_wifi_connect_type";
-
-        /**
          * Swap volume buttons when the screen is rotated
          * 0 - Disabled
          * 1 - Enabled (screen is rotated by 90 or 180 degrees: phone, hybrid)

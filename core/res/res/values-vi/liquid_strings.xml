@@ -113,4 +113,6 @@
   <string name="permlab_changeHeadsUpState">bật hoặc vô hiệu hóa heads up</string>
   <string name="permdesc_changeHeadsUpState">Cho phép các ứng dụng để thay đổi cho dù ứng dụng khác được phép hiển thị bình thường thông báo như là thông báo heads up.</string>
   <string name="usb_storage_notification_manage_message">Bấm vào để quản lý</string>
+  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_message">%s failed to install</string>
 </resources>

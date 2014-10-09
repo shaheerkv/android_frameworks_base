@@ -86,7 +86,7 @@
   <string name="quick_settings_lte">LTE</string>
   <string name="quick_settings_lte_off">LTE desligado</string>
   <string name="quick_settings_shakeevents">Agitar eventos</string>
-  <string name="quick_settings_shakeevents_off">Shake events off</string>
+  <string name="quick_settings_shakeevents_off">Sacuda o eventos</string>
   <string name="quick_settings_volume">Volume</string>
   <string name="quick_settings_expanded_desktop">Expandido</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
@@ -108,7 +108,7 @@
   <string name="quick_settings_quick_record_save">Salvo</string>
   <string name="quick_settings_quick_record_play">Tocando...</string>
   <string name="quick_settings_quick_record_dialog_cancel">Fechar</string>
-  <string name="quick_settings_quick_record_dialog">Play Recording\nLongpress to delete</string>
+  <string name="quick_settings_quick_record_dialog">Jogar Recording\nLongpress excluir</string>
   <string name="quick_settings_custom_toggle">Personalizado</string>
   <string name="quick_settings_contact_toggle">Contato</string>
   <string name="quick_settings_reminder">Lembrete</string>
@@ -140,26 +140,26 @@
   <string name="battery_saver_change">Economia de bateria mudara a rede para</string>
   <string name="battery_saver_network">Rede restaurado</string>
   <string name="battery_saver_data">Dados móveis restaurados</string>
-  <string name="battery_saver_brightness">Screen Brightness restored</string>
-  <string name="battery_saver_bluetooth">Bluetooth restored</string>
-  <string name="battery_saver_location">Gps restored</string>
-  <string name="battery_saver_wifi">Wi-Fi restored</string>
-  <string name="battery_saver_cpu">CPU restored</string>
-  <string name="battery_saver_cpu_change">Battery Saver Change CPU freq to</string>
-  <string name="battery_saver_sync">Sync restored</string>
-  <string name="battery_saver_led">LED restored</string>
-  <string name="battery_saver_vibrate">Vibrate restored</string>
-  <string name="battery_saver_no_changes">No configuration restored</string>
+  <string name="battery_saver_brightness">Brilho da tela restaurado</string>
+  <string name="battery_saver_bluetooth">Bluetooth restaurado</string>
+  <string name="battery_saver_location">GPS restaurado</string>
+  <string name="battery_saver_wifi">Wi-Fi restaurado</string>
+  <string name="battery_saver_cpu">CPU restaurado</string>
+  <string name="battery_saver_cpu_change">Bateria Saver mudança CPU freq para</string>
+  <string name="battery_saver_sync">Sincronização restaurada</string>
+  <string name="battery_saver_led">LED restaurado</string>
+  <string name="battery_saver_vibrate">Vibrar restaurada</string>
+  <string name="battery_saver_no_changes">Nenhuma configuração restaurada</string>
   <string name="battery_saver_all">Toda a configuração restaurada</string>
-  <string name="battery_saver_enable_ticker">Battery saver mode running...</string>
-  <string name="battery_saver_enable_title">Battery saver mode</string>
-  <string name="battery_saver_airplane_ticker">Airplane mode enabled by battery saver</string>
-  <string name="battery_saver_airplane_text">Airplane mode enabled by battery saver because there is no signal after 5 minutes</string>
+  <string name="battery_saver_enable_ticker">Modo de economia de bateria correndo...</string>
+  <string name="battery_saver_enable_title">Modo de economia de bateria</string>
+  <string name="battery_saver_airplane_ticker">Modo de avião, habilitado pelo protetor de bateria</string>
+  <string name="battery_saver_airplane_text">Modo de avião, habilitado pelo protetor de bateria porque não há nenhum sinal após 5 minutos</string>
   <string name="battery_saver_disable">Desativado</string>
   <string name="quick_settings_hover">Hover</string>
-  <string name="pie_battery_status_charging">Charging (<xliff:g id="percent">%d</xliff:g>%%)</string>
+  <string name="pie_battery_status_charging">Carregando (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Carregado</string>
-  <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% remaining</string>
+  <string name="pie_battery_status_discharging"><xliff:g id="percent"> %d </xliff:g> %% restantes</string>
   <string name="pie_phone_status_no_service">Sem serviço</string>
   <string name="pie_phone_status_airplane_mode">Modo de avião ativado</string>
   <string name="pie_phone_status_emergency_only">Apenas chamadas de Emergência</string>
@@ -172,20 +172,20 @@
   <string name="halo_dismiss">Descartar a notificação</string>
   <string name="halo_hide">Ocultar</string>
   <string name="halo_clear_all">Descartar todas as notificações</string>
-  <string name="halo_silence">Hide &amp; silence until woken</string>
+  <string name="halo_silence">Ocultar &amp; silêncio até acordado</string>
   <string name="halo_tutorial1">Este é o HALO</string>
   <string name="halo_tutorial2">Mover-me: toque duplo &amp; arraste</string>
   <string name="halo_tutorial3">Procure tarefas: Arraste na horizontal</string>
   <string name="memory">RAM</string>
-  <string name="service_free_mem"><xliff:g id="memory">%1$s</xliff:g> free</string>
-  <string name="service_used_mem"><xliff:g id="memory">%1$s</xliff:g> used</string>
-  <string name="onthego_notif_ticker">On-The-Go activated</string>
-  <string name="onthego_notif_title">On-The-Go is active</string>
+  <string name="service_free_mem"><xliff:g id="memory"> %1$s </xliff:g> grátis</string>
+  <string name="service_used_mem"><xliff:g id="memory"> %1$s </xliff:g> usado</string>
+  <string name="onthego_notif_ticker">On-The-Go ativado</string>
+  <string name="onthego_notif_title">On-The-Go está ativo</string>
   <string name="onthego_notif_stop">Parar</string>
   <string name="onthego_notif_options">Opções</string>
-  <string name="onthego_notif_error">Unable to start On-The-Go</string>
-  <string name="onthego_notif_restart">Restart On-The-Go</string>
-  <string name="onthego_notif_camera_changed">Camera mode changed</string>
+  <string name="onthego_notif_error">Não é possível iniciar On-The-Go</string>
+  <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
+  <string name="onthego_notif_camera_changed">Modo de câmera mudado</string>
   <string name="onthego_transparency">Transparência</string>
   <string name="onthego_front_camera">Use à câmera frontal</string>
   <string name="onthego_service_toggle">Reiniciar automaticamente o serviço</string>

@@ -116,4 +116,6 @@
   <string name="permlab_changeHeadsUpState">启用或禁用头了</string>
   <string name="permdesc_changeHeadsUpState">允许应用程序更改是否允许另一应用程序显示正常通知作为抬起头来通知。</string>
   <string name="usb_storage_notification_manage_message">Tap to manage</string>
+  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_message">%s failed to install</string>
 </resources>

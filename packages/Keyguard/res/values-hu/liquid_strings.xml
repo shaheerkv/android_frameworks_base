@@ -38,7 +38,7 @@
     <item quantity="other">%d olvasatlan üzenetek</item>
   </plurals>
   <string name="missed_call">Nem fogadott hívás</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="message_from">üzenete</string>
+  <string name="message_from_person">%1$s üzenete</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

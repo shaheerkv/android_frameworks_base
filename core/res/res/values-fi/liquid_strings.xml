@@ -114,4 +114,6 @@
   <string name="permlab_changeHeadsUpState">activeer of deactiveer heads up</string>
   <string name="permdesc_changeHeadsUpState">Geeft de applicatie toegang om te veranderen of andere applicaties zijn toegestaan om normale notificaties weer te geven als heads up notificaties.</string>
   <string name="usb_storage_notification_manage_message">Tap to manage</string>
+  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_message">%s failed to install</string>
 </resources>

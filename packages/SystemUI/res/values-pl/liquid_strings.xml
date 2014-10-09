@@ -49,7 +49,7 @@
   <string name="chamber_invalid">Nieprawidłowe dane wejściowe. Ostrożnie.</string>
   <string name="chamber_invalid_setting">Spróbuj przełączyć ustawienia ręcznie, aby upewnić się, że istnieje baza danych ustawień dla tej akcji.</string>
   <string name="chamber_checkbox">Pole wyboru</string>
-  <string name="chamber_chk_message">Is this setting a checkbox setting?</string>
+  <string name="chamber_chk_message">Jest to ustawienie ustawienie pola wyboru?</string>
   <string name="chamber_int">Wartości wejściowe</string>
   <string name="chamber_int_message">Wprowadź wartości między którymi chcesz się przełączyć. Wartości należy oddzielić przecinkami. Kolory podaj w wartościach heksadecymalnych (#FF00aacc), lub w słownych wartościach podstawowych (red, green i yellow).</string>
   <string name="chamber_name_title">Nazwa skrótu</string>

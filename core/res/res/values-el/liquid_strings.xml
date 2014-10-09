@@ -114,4 +114,6 @@
   <string name="permlab_changeHeadsUpState">ενεργοποιήσετε ή να απενεργοποιήσετε heads up</string>
   <string name="permdesc_changeHeadsUpState">Επιτρέπει στην εφαρμογή να αλλάξει είτε μια άλλη εφαρμογή επιτρέπεται να εμφανίζονται κανονικές ειδοποιήσεις σαν ειδοποιήσεις heads up.</string>
   <string name="usb_storage_notification_manage_message">Tap to manage</string>
+  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_message">%s failed to install</string>
 </resources>

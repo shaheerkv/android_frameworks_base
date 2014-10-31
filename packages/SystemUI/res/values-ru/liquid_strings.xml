@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">Нет интернета</string>
   <string name="quick_settings_compass_off">Компас выкл</string>
   <string name="quick_settings_compass_init">Инициализация</string>
+  <string name="quick_settings_hover">Hover</string>
+  <string name="quick_settings_network_adb_disabled_label">Выключено</string>
+  <string name="quick_settings_network_adb_enabled_label">Включено</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Только 3g</string>
   <string name="network_3G_auto">2G/3G авто</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Авиарежим включен режимом экономии заряда</string>
   <string name="battery_saver_airplane_text">Режим полета включен режимом экономии заряда потому что нет сигнала в течении 5 минут</string>
   <string name="battery_saver_disable">Отключить</string>
-  <string name="quick_settings_hover">Hover</string>
   <string name="pie_battery_status_charging">Зарядка (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Заряжено</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% осталось</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Завершить приложение</string>
   <string name="advanced_dev_option_wipe_app">Стереть данные</string>
   <string name="advanced_dev_option_force_stop">Остановить принудительно</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Скрыть иконки уведомлениий</string>
   <string name="status_bar_recent_floating_item_title">Плавающий режим</string>
   <string name="floating_mode_blacklisted_app">Текущего приложения в черный список, как она не может работать, как ожидалось в плавающий режим </string>

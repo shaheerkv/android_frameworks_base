@@ -33,7 +33,7 @@
   <string name="reboot_fastboot">빠른재부팅</string>
   <string name="reboot_download">다운로드</string>
   <string name="reboot_soft">빠른재부팅</string>
-  <string name="reboot_progress">재부팅중/u2026</string>
+  <string name="reboot_progress">재부팅중</string>
   <string name="reboot_confirm">휴대전화가 재부팅됩니다.</string>
   <string name="global_action_reboot">재부팅</string>
   <string name="global_action_choose_profile">프로파일</string>

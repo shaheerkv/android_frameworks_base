@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">Žádný internet</string>
   <string name="quick_settings_compass_off">Kompas vypnut</string>
   <string name="quick_settings_compass_init">Inicializuji\u2026</string>
+  <string name="quick_settings_hover">Režim vznášení</string>
+  <string name="quick_settings_network_adb_disabled_label">Vypnuto</string>
+  <string name="quick_settings_network_adb_enabled_label">Povoleno</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Jen 3G</string>
   <string name="network_3G_auto">2G/3G automaticky</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Režim v letadle povolen spořičem baterie</string>
   <string name="battery_saver_airplane_text">Režim v letadle byl povolen spořičem baterie protože již 5 minut nebyl zachycen žádný signál</string>
   <string name="battery_saver_disable">Zakázat</string>
-  <string name="quick_settings_hover">Režim vznášení</string>
   <string name="pie_battery_status_charging">Nabíjení (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Nabito</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% zbývá</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Vynutit ukončení aplikace</string>
   <string name="advanced_dev_option_wipe_app">Smazat data aplikace</string>
   <string name="advanced_dev_option_force_stop">Vynutit ukončení</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Skrýt ikonu(y) oznámení aplikace</string>
   <string name="status_bar_recent_floating_item_title">Plovoucí režim</string>
   <string name="floating_mode_blacklisted_app">Současná aplikace je na černé listině protože nemusí fungovat dle očekávání v plovoucím režimu </string>

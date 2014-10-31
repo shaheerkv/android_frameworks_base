@@ -31,17 +31,17 @@
         \n\nПопытайтесь еще в течение <xliff:g id="number">%d</xliff:g> секунд[ы].
     </string>
   <plurals name="missed_calls">
-    <item quantity="one">%d missed call</item>
-    <item quantity="few">%d missed calls</item>
+    <item quantity="one">%d пропущенный вызов</item>
+    <item quantity="few">%d пропущенный вызов</item>
     <item quantity="other">%d missed calls</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="one">%d unread message</item>
-    <item quantity="few">%d unread messages</item>
+    <item quantity="one">%d непрочитанных сообщений</item>
+    <item quantity="few">%d непрочитанных сообщений</item>
     <item quantity="other">%d unread messages</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="missed_call">пропущенный  вызов</string>
+  <string name="message_from">сообщение от</string>
+  <string name="message_from_person">сообщение от %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

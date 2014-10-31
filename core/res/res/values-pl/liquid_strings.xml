@@ -114,6 +114,6 @@
   <string name="permlab_changeHeadsUpState">włącz lub wyłącz HeadsUp</string>
   <string name="permdesc_changeHeadsUpState">Zezwala aplikacji na zdecydowanie, czy aplikacja będzie mogła wyświetlić swoje aktualne powiadomienia jako powiadomienia HeadsUp.</string>
   <string name="usb_storage_notification_manage_message">Dotknij, aby zarządzać</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">Nie udało się zainstalować motywu</string>
+  <string name="theme_install_error_message">%s instalacja się nie powiodła</string>
 </resources>

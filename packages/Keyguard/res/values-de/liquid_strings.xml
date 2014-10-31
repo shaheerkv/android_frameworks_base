@@ -31,15 +31,15 @@
         \n\n Bitte versuchen Sie es in <xliff:g id="NUMBER_1">%d</xliff:g> Sekunden noch einmal.
     </string>
   <plurals name="missed_calls">
-    <item quantity="one">%d missed call</item>
-    <item quantity="other">%d missed calls</item>
+    <item quantity="one">%d Anruf in Abwesenheit</item>
+    <item quantity="other">%d Anrufe in Abwesenheit</item>
   </plurals>
   <plurals name="unread_messages">
-    <item quantity="one">%d unread message</item>
-    <item quantity="other">%d unread messages</item>
+    <item quantity="one">%d ungelesene Nachricht</item>
+    <item quantity="other">%d ungelesene Nachrichten</item>
   </plurals>
-  <string name="missed_call">missed call</string>
-  <string name="message_from">message from</string>
-  <string name="message_from_person">message from %1$s</string>
+  <string name="missed_call">Anruf in Abwesenheit</string>
+  <string name="message_from">Nachricht von</string>
+  <string name="message_from_person">Nachricht von %1$s</string>
   <string name="full_wday_month_day_no_year">EEEEMMMMd</string>
 </resources>

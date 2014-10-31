@@ -131,6 +131,9 @@ ATTENZIONE: Questo processo è pericoloso!</string>
   <string name="quick_settings_network_disable">No internet</string>
   <string name="quick_settings_compass_off">Bussola off</string>
   <string name="quick_settings_compass_init">Inizializzazione\u2026</string>
+  <string name="quick_settings_hover">Hover</string>
+  <string name="quick_settings_network_adb_disabled_label">Disabilitato</string>
+  <string name="quick_settings_network_adb_enabled_label">Abilitato</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Solo 3G</string>
   <string name="network_3G_auto">Auto 2G/3G</string>
@@ -157,7 +160,6 @@ ATTENZIONE: Questo processo è pericoloso!</string>
   <string name="battery_saver_airplane_ticker">Modalità aereo abilitato dal risparmio batteria</string>
   <string name="battery_saver_airplane_text">Modalità aereo abilitato da saver batteria perché non non c\'è nessun segnale dopo 5 minuti di ricerca</string>
   <string name="battery_saver_disable">Disabilita</string>
-  <string name="quick_settings_hover">Hover</string>
   <string name="pie_battery_status_charging">Caricamento (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Carica</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% rimanente</string>
@@ -200,6 +202,7 @@ ATTENZIONE: Questo processo è pericoloso!</string>
   <string name="app_stop_item_title">Termina applicazione</string>
   <string name="advanced_dev_option_wipe_app">Cancellare i dati dell\'app</string>
   <string name="advanced_dev_option_force_stop">Termina</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Nascondere le icone di notifica</string>
   <string name="status_bar_recent_floating_item_title">Modalità fluttuante</string>
   <string name="floating_mode_blacklisted_app">L\'applicazione corrente è nella lista nera e potrebbe non funzionare come previsto in modalità fluttuante </string>

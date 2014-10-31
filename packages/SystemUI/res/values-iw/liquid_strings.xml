@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">No internet</string>
   <string name="quick_settings_compass_off">Compass off</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_hover">Hover</string>
+  <string name="quick_settings_network_adb_disabled_label">מושבת</string>
+  <string name="quick_settings_network_adb_enabled_label">מאופשר</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">3G Only</string>
   <string name="network_3G_auto">2G/3G Auto</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Airplane mode enabled by battery saver</string>
   <string name="battery_saver_airplane_text">Airplane mode enabled by battery saver because there is no signal after 5 minutes</string>
   <string name="battery_saver_disable">השבת</string>
-  <string name="quick_settings_hover">Hover</string>
   <string name="pie_battery_status_charging">Charging (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Charged</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% remaining</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Kill app</string>
   <string name="advanced_dev_option_wipe_app">Wipe app data</string>
   <string name="advanced_dev_option_force_stop">Force stop</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Hide app notification icon(s)</string>
   <string name="status_bar_recent_floating_item_title">Floating mode</string>
   <string name="floating_mode_blacklisted_app">The current app is blacklisted as it may not work as expected in floating mode </string>

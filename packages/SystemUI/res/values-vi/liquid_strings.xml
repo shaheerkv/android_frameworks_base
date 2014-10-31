@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">Không có internet</string>
   <string name="quick_settings_compass_off">tắt Compass</string>
   <string name="quick_settings_compass_init">Đang khởi chạy</string>
+  <string name="quick_settings_hover">Di chuột</string>
+  <string name="quick_settings_network_adb_disabled_label">Vô hiệu hóa</string>
+  <string name="quick_settings_network_adb_enabled_label">Đã kích hoạt</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Chỉ dùng 3G</string>
   <string name="network_3G_auto">Tự động 2G/3G</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Chế độ máy bay được kích hoạt bởi tiết kiệm pin</string>
   <string name="battery_saver_airplane_text">Chế độ máy bay được kích hoạt bởi tiết kiệm pin vì không có tín hiệu sau 5 phút</string>
   <string name="battery_saver_disable">Vô hiệu hoá</string>
-  <string name="quick_settings_hover">Di chuột</string>
   <string name="pie_battery_status_charging">Đang sạc (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Đã sạc</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% còn lại</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Giết ứng dụng</string>
   <string name="advanced_dev_option_wipe_app">Xoá sạch dữ liệu ứng dụng</string>
   <string name="advanced_dev_option_force_stop">Buộc dừng</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Ẩn biểu tượng(s) ứng dụng thông báo</string>
   <string name="status_bar_recent_floating_item_title">Floating mode</string>
   <string name="floating_mode_blacklisted_app">Các ứng dụng hiện tại là danh sách đen như là nó có thể hoạt động như mong đợi trong chế độ floating </string>

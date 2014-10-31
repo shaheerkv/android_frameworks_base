@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">İnternet yok</string>
   <string name="quick_settings_compass_off">Pusula kapalı</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_hover">Geniş Bildirim</string>
+  <string name="quick_settings_network_adb_disabled_label">Devre dışı</string>
+  <string name="quick_settings_network_adb_enabled_label">Etkin</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Sadece 3G</string>
   <string name="network_3G_auto">2G / 3G Otomatik</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Pil tasarrufu uçak modunu etkinleştirdi</string>
   <string name="battery_saver_airplane_text">Pil tasarrufu 5 dakika boyunca mobil sinyal alınmadığı için uçak modunu etkinleştirdi</string>
   <string name="battery_saver_disable">Pasif</string>
-  <string name="quick_settings_hover">Geniş Bildirim</string>
   <string name="pie_battery_status_charging">Şarj oluyor (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Şarj oldu</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% kaldı</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Uygulamayı öldür</string>
   <string name="advanced_dev_option_wipe_app">Uygulama verilerini sil</string>
   <string name="advanced_dev_option_force_stop">Durmaya zorla</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Uygulamanın bildirim ikonlarını gizle</string>
   <string name="status_bar_recent_floating_item_title">Kayan pencereler modu</string>
   <string name="floating_mode_blacklisted_app">Uygulama kayan pencere modunda düzgün çalışmazsa kara listeye alın </string>

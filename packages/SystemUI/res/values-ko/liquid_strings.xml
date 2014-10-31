@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">인터넷 연결 안됨</string>
   <string name="quick_settings_compass_off">Compass off</string>
   <string name="quick_settings_compass_init">초기화중/u2026</string>
+  <string name="quick_settings_hover">호버</string>
+  <string name="quick_settings_network_adb_disabled_label">사용 안 함</string>
+  <string name="quick_settings_network_adb_enabled_label">켜져있음</string>
   <string name="network_4G">4G/LTEX3</string>
   <string name="network_3G_only">3g 느린 온라인</string>
   <string name="network_3G_auto">2g/3g 자동</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">비행기 모드 적용 by 배터리 절약 모드</string>
   <string name="battery_saver_airplane_text">5분후 신호가 있기 때문에 배터리절약모드를 비행기모드</string>
   <string name="battery_saver_disable">비활성화</string>
-  <string name="quick_settings_hover">호버</string>
   <string name="pie_battery_status_charging">충전 (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">충전되었습니다.</string>
   <string name="pie_battery_status_discharging">
@@ -200,6 +202,7 @@
   <string name="app_stop_item_title">앱 종료</string>
   <string name="advanced_dev_option_wipe_app">애플리케이션 데이터 삭제</string>
   <string name="advanced_dev_option_force_stop">강제 종료 실행?</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">앱 알림 아이콘을 숨깁니다.</string>
   <string name="status_bar_recent_floating_item_title">플로팅 모드</string>
   <string name="floating_mode_blacklisted_app">플로팅 모드에  뜨지 않을 어플을 블랙리스트 합니다.</string>

@@ -114,6 +114,6 @@
   <string name="permlab_changeHeadsUpState">habilitar ou desabilitar cabeças acima</string>
   <string name="permdesc_changeHeadsUpState">Permite que o aplicativo alterar se outro aplicativo é permitido para mostrar notificações normais como heads-up de notificação.</string>
   <string name="usb_storage_notification_manage_message">Toque para gerenciar</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">Falha ao instalar o tema</string>
+  <string name="theme_install_error_message">%s não conseguiu instalar</string>
 </resources>

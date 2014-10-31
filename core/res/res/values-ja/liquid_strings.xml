@@ -114,6 +114,6 @@
   <string name="permlab_changeHeadsUpState">有効にするかどうかたずねる</string>
   <string name="permdesc_changeHeadsUpState">アプリケーション別のアプリケーションは通知を表示する通常通知を頭として許可されているかどうかを変更することができます。</string>
   <string name="usb_storage_notification_manage_message">タップして管理する</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">テーマをインストールできませんでした</string>
+  <string name="theme_install_error_message">%sをインストールできませんでした</string>
 </resources>

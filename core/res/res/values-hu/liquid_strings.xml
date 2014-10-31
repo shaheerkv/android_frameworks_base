@@ -94,9 +94,9 @@
   <string name="setting_reset_hint_title">Beállítások alaphelyzetbe állítása:</string>
   <string name="setting_reset_hint_message">
         <![CDATA[
-        <p>Open <b>Settings</b><br/>
-        Below Personal divider: <b>Backup & Reset</b><br/>
-        Below Personalization divider: <b>Reset preferences</b></p>
+        <p><b>Beállítások</b> megnyitása<br/>
+        Személyes elválasztó alatt: <b>Mentés & Visszaállítás</b><br/>
+        Testreszabás elválasztó alatt: <b>Gyári beállítások visszaállítása</b></p>
         ]]></string>
   <string name="notify_turn_wifi_off_title">Wi-Fi kikapcsolása</string>
   <string name="permlab_interceptSmsSent">kimenő SMS üzenetek elfogása</string>

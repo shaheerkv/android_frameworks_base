@@ -114,6 +114,6 @@
   <string name="permlab_changeHeadsUpState">active ou désactive la barre de notification HeadsUp</string>
   <string name="permdesc_changeHeadsUpState">Autorise l\'application à choisir si une application sera autorisée à afficher ses notifications courantes dans la barre HeadsUp.</string>
   <string name="usb_storage_notification_manage_message">Appuyer pour gérer</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">Impossible d\'installer le thème</string>
+  <string name="theme_install_error_message">%s pas installer</string>
 </resources>

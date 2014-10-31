@@ -114,6 +114,6 @@
   <string name="permlab_changeHeadsUpState">yukarı başkanları dışı</string>
   <string name="permdesc_changeHeadsUpState">Başka bir uygulama normal bildirimlerin bildirim dikkat göstermek izin verilip verilmeyeceğini değiştirmek uygulama sağlar.</string>
   <string name="usb_storage_notification_manage_message">Düzenlemek için dokun</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">Tema yüklenemedi</string>
+  <string name="theme_install_error_message">%s yükleme başarısız oldu</string>
 </resources>

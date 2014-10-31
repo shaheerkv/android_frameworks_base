@@ -130,6 +130,9 @@
   <string name="quick_settings_network_disable">Sem internet</string>
   <string name="quick_settings_compass_off">Bússola desativada</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_hover">Hover</string>
+  <string name="quick_settings_network_adb_disabled_label">Desativar</string>
+  <string name="quick_settings_network_adb_enabled_label">Ativado</string>
   <string name="network_4G">4G/LTE</string>
   <string name="network_3G_only">Somente 3G</string>
   <string name="network_3G_auto">Auto 2G/3G</string>
@@ -156,7 +159,6 @@
   <string name="battery_saver_airplane_ticker">Modo de avião, habilitado pelo protetor de bateria</string>
   <string name="battery_saver_airplane_text">Modo de avião, habilitado pelo protetor de bateria porque não há nenhum sinal após 5 minutos</string>
   <string name="battery_saver_disable">Desativado</string>
-  <string name="quick_settings_hover">Hover</string>
   <string name="pie_battery_status_charging">Carregando (<xliff:g id="percent">%d</xliff:g>%%)</string>
   <string name="pie_battery_status_full">Carregado</string>
   <string name="pie_battery_status_discharging"><xliff:g id="percent"> %d </xliff:g> %% restantes</string>
@@ -199,6 +201,7 @@
   <string name="app_stop_item_title">Aplicativo terminado</string>
   <string name="advanced_dev_option_wipe_app">Limpar dados de aplicativos</string>
   <string name="advanced_dev_option_force_stop">Força fechamento</string>
+  <string name="advanced_dev_option_uninstall">Uninstall</string>
   <string name="status_bar_notification_hide_icon_packages">Ocultar o ícone de notificação app (s)</string>
   <string name="status_bar_recent_floating_item_title">Modo flutuante</string>
   <string name="floating_mode_blacklisted_app">O aplicativo atual está na lista negra, pois pode não funcionar como esperado no modo flutuante</string>
